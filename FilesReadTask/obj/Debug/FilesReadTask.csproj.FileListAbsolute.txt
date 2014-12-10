@@ -1,0 +1,9 @@
+D:\Task\FilesReadTask\bin\Debug\FilesReadTask.exe.config
+D:\Task\FilesReadTask\bin\Debug\FilesReadTask.exe
+D:\Task\FilesReadTask\bin\Debug\FilesReadTask.pdb
+D:\Task\FilesReadTask\obj\Debug\FilesReadTask.csprojResolveAssemblyReference.cache
+D:\Task\FilesReadTask\obj\Debug\FilesReadTask.Properties.Resources.resources
+D:\Task\FilesReadTask\obj\Debug\FilesReadTask.ReadResumeToMongoDB.resources
+D:\Task\FilesReadTask\obj\Debug\FilesReadTask.csproj.GenerateResource.Cache
+D:\Task\FilesReadTask\obj\Debug\FilesReadTask.exe
+D:\Task\FilesReadTask\obj\Debug\FilesReadTask.pdb
