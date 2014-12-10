@@ -1,0 +1,3 @@
+D:\BlueCard\SourceCode\FileTask\FilesReadTask\bin\Debug\FilesReadTask.exe.config
+D:\Task\FileTask\FilesReadTask\bin\Debug\FilesReadTask.exe.config
+D:\Task\FileTask\FilesReadTask\obj\Debug\FilesReadTask.csprojResolveAssemblyReference.cache
