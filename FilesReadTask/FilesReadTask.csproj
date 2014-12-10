@@ -56,8 +56,6 @@
     <Compile Include="ReadResumeToMongoDB.Designer.cs">
       <DependentUpon>ReadResumeToMongoDB.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="obj\Debug\FilesReadTask.Properties.Resources.resources" />
-    <EmbeddedResource Include="obj\Debug\FilesReadTask.ReadResumeToMongoDB.resources" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -75,7 +73,6 @@
     <None Include="bin\Debug\FilesReadTask.vshost.exe.manifest" />
     <None Include="obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
     <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
-    <None Include="obj\Debug\FilesReadTask.csproj.GenerateResource.Cache" />
     <None Include="obj\Debug\FilesReadTask.csprojResolveAssemblyReference.cache" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -93,12 +90,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="bin\Debug\FilesReadTask.exe" />
-    <Content Include="bin\Debug\FilesReadTask.pdb" />
     <Content Include="bin\Debug\FilesReadTask.vshost.exe" />
     <Content Include="obj\Debug\FilesReadTask.csproj.FileListAbsolute.txt" />
-    <Content Include="obj\Debug\FilesReadTask.exe" />
-    <Content Include="obj\Debug\FilesReadTask.pdb" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\Release\" />

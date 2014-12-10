@@ -1,0 +1,1167 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CRIC.Shanglv.Lib.Util</name>
+    </assembly>
+    <members>
+        <member name="T:CRIC.Shanglv.Lib.Util.WatermarkEnum">
+            <summary>
+            水印图片枚举类
+            </summary>
+            <remarks>added by bideliang on 2012/2/23</remarks>
+        </member>
+        <member name="F:CRIC.Shanglv.Lib.Util.WatermarkEnum.None">
+            <summary>
+            不要水印
+            </summary>
+        </member>
+        <member name="F:CRIC.Shanglv.Lib.Util.WatermarkEnum.Xiezilou">
+            <summary>
+            写字楼水印
+            </summary>
+        </member>
+        <member name="F:CRIC.Shanglv.Lib.Util.WatermarkEnum.Travel">
+            <summary>
+            旅游地产水印
+            </summary>
+        </member>
+        <member name="F:CRIC.Shanglv.Lib.Util.WatermarkEnum.Commercial">
+            <summary>
+            商业地产水印
+            </summary>
+        </member>
+        <member name="F:CRIC.Shanglv.Lib.Util.WatermarkEnum.Haiwai">
+            <summary>
+            海外地产水印
+            </summary>
+        </member>
+        <member name="F:CRIC.Shanglv.Lib.Util.WatermarkEnum.TravelMini">
+            <summary>
+            旅游地产小号水印，用于摄影大展
+            </summary>
+        </member>
+        <member name="T:CRIC.Shanglv.Lib.Util.Mail">
+            <summary>
+            邮件管理类
+            </summary>
+            <remarks>add by bideliang on 2011/12/2</remarks>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.Mail.#ctor(System.String,System.String,System.String,System.String)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="smtpHost">邮件服务器IP</param>
+            <param name="address">发件人地址</param>
+            <param name="password">发件人密码</param>
+            <param name="accountName">发件人名称</param>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.Mail.SendMail(System.String,System.String,System.String,System.String)">
+            <summary>
+            发送邮件
+            </summary>
+            <param name="toAddress">收件人地址</param>
+            <param name="emailTitle">邮件标题</param>
+            <param name="emailContent">邮件内容</param>
+            <param name="displayName">发件人名称</param>
+            <param name="ccAddress">抄送地址，多个地址以英文逗号分隔</param>
+            <returns></returns>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.Mail.SendMail(System.String,System.String,System.String,System.Collections.Generic.IDictionary{System.String,System.String},System.String)">
+            <summary>
+            发送邮件(带附件)
+            </summary>
+            <param name="toAddress">收件人地址</param>
+            <param name="title">邮件标题</param>
+            <param name="content">邮件内容</param>
+            <param name="pathDict">附件内容</param>
+            <param name="ccAddress">抄送地址，多个地址以英文逗号分隔</param>
+            <returns></returns>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.Mail.Attachments(System.Net.Mail.MailMessage,System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+            添加附件
+            </summary>
+            <param name="mailMessage">邮件的实体</param>
+            <param name="pathDict">附件的路径</param>
+        </member>
+        <member name="F:CRIC.Shanglv.Lib.Util.SMS.smUrl">
+            <summary>
+            单发短信URL
+            </summary>
+        </member>
+        <member name="F:CRIC.Shanglv.Lib.Util.SMS.smMultiUrl">
+            <summary>
+            群发短信URL
+            </summary>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.SMS.Send(System.String,System.String)">
+            <summary>
+            单发短信接口
+            </summary>
+            <param name="mobile">手机号码</param>
+            <param name="message">短信内容（不超过60个字符）</param>
+            <returns></returns>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.SMS.MultiSend(System.String,System.String)">
+            <summary>
+            群发短信接口
+            </summary>
+            <param name="multiMobile">多个手机号码，中间以半角逗号(,)分隔</param>
+            <param name="message">短信内容</param>
+            <returns>发送结果</returns>
+        </member>
+        <member name="T:CRIC.Shanglv.Lib.Util.SiteCity">
+            <summary>
+            站点城市列表
+            </summary>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.SiteCity.Get">
+            <summary>
+            得到站点城市表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.SiteCity.GetList(System.String)">
+            <summary>
+            根据关键字得到站点城市列表
+            </summary>
+            <param name="keyword"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.SiteCity.GetSiteCityByCityPY(System.String)">
+            <summary>
+            根据城市拼音得到站点城市实体
+            </summary>
+            <param name="citypy"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.SiteCity.GetSiteCityByCityCode(System.String)">
+            <summary>
+            根据城市代码得到站点城市实体
+            </summary>
+            <param name="citycode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.SiteCity.GetSiteCityByCityCaption(System.String)">
+            <summary>
+            根据城市名称得到站点城市实体
+            </summary>
+            <param name="citycaption"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.SiteCity.GetSiteCityByLibCityPinYin(System.String)">
+            <summary>
+            根据楼盘库城市拼音得到站点城市实体
+            </summary>
+            <param name="libcitypinyin"></param>
+            <returns></returns>
+        </member>
+        <member name="P:CRIC.Shanglv.Lib.Util.SiteCity.CityCaption">
+            <summary>
+            城市全称
+            </summary>
+        </member>
+        <member name="P:CRIC.Shanglv.Lib.Util.SiteCity.CityPinYin">
+            <summary>
+            城市拼音
+            </summary>
+        </member>
+        <member name="P:CRIC.Shanglv.Lib.Util.SiteCity.CityCode">
+            <summary>
+            城市代码
+            </summary>
+        </member>
+        <member name="P:CRIC.Shanglv.Lib.Util.SiteCity.SitePinYin">
+            <summary>
+            城市站点名称拼音
+            </summary>
+        </member>
+        <member name="P:CRIC.Shanglv.Lib.Util.SiteCity.SiteCaption">
+            <summary>
+            城市站点名称
+            </summary>
+        </member>
+        <member name="P:CRIC.Shanglv.Lib.Util.SiteCity.CityShort">
+            <summary>
+            城市简称
+            </summary>
+        </member>
+        <member name="P:CRIC.Shanglv.Lib.Util.SiteCity.LibCityPinYin">
+            <summary>
+            楼盘库城市拼音
+            </summary>
+        </member>
+        <member name="T:CRIC.Shanglv.Lib.Util.Entity.OrderExp">
+            <summary>
+            排序方式
+            </summary>
+        </member>
+        <member name="F:CRIC.Shanglv.Lib.Util.Entity.OrderExp.Desc">
+            <summary>
+            降序
+            </summary>
+        </member>
+        <member name="F:CRIC.Shanglv.Lib.Util.Entity.OrderExp.Asc">
+            <summary>
+            升序
+            </summary>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.Cookie.CookieSave(System.String,System.String,System.String,System.DateTime,System.String)">
+            <summary>
+            存入Cookie
+            </summary>
+            <param name="cookieName">cookie名</param>
+            <param name="key">键</param>
+            <param name="value">值</param>
+            <param name="expires">过期时间</param>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.Cookie.CookieSave(System.String,CRIC.Shanglv.Lib.Util.Entity.DataParameter[],System.DateTime,System.String)">
+            <summary>
+            存放Cookie
+            </summary>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.Cookie.CookieGet(System.String,System.String)">
+            <summary>
+            获取到Cookie
+            </summary>
+            <param name="cookieName"></param>
+            <param name="valueKey"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.Cookie.StrUrlDecode(System.String)">
+            <summary>
+            返回URL逆转换为正常字符串
+            </summary>
+            <param name="s">需要转换的字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.LunDay.GetLunarCalendar(System.DateTime)">
+            <summary> 
+            获取对应日期的农历 
+            </summary> 
+            <param name="dtDay">公历日期</param> 
+            <returns></returns> 
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.LunDay.GetDayCalendar(System.DateTime)">
+            <summary> 
+            获取对应日期的农历 
+            </summary> 
+            <param name="dtDay">公历日期</param> 
+            <returns></returns> 
+        </member>
+        <member name="T:CRIC.Shanglv.Lib.Util.WatermarkTypeEnum">
+            <summary>
+            水印类型枚举
+            </summary>
+            <remarks>add by bideliang on 2011-9-7</remarks>
+        </member>
+        <member name="F:CRIC.Shanglv.Lib.Util.WatermarkTypeEnum.Transversely">
+            <summary>
+            横切
+            </summary>
+        </member>
+        <member name="F:CRIC.Shanglv.Lib.Util.WatermarkTypeEnum.Middle">
+            <summary>
+            居中
+            </summary>
+        </member>
+        <member name="F:CRIC.Shanglv.Lib.Util.WatermarkTypeEnum.BottomRight">
+            <summary>
+            右下角
+            </summary>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.Entity.SiteCity.#ctor(System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            SiteCity构造函数
+            </summary>
+            <param name="citycaption"></param>
+            <param name="citypinyin"></param>
+            <param name="citycode"></param>
+            <param name="sitepinyin"></param>
+            <param name="_sitecaption"></param>
+        </member>
+        <member name="P:CRIC.Shanglv.Lib.Util.Entity.SiteCity.CityCaption">
+            <summary>
+            城市全称
+            </summary>
+        </member>
+        <member name="P:CRIC.Shanglv.Lib.Util.Entity.SiteCity.CityPinYin">
+            <summary>
+            城市拼音
+            </summary>
+        </member>
+        <member name="P:CRIC.Shanglv.Lib.Util.Entity.SiteCity.CityCode">
+            <summary>
+            城市代码
+            </summary>
+        </member>
+        <member name="P:CRIC.Shanglv.Lib.Util.Entity.SiteCity.SitePinYin">
+            <summary>
+            城市站点名称拼音
+            </summary>
+        </member>
+        <member name="P:CRIC.Shanglv.Lib.Util.Entity.SiteCity.SiteCaption">
+            <summary>
+            城市站点名称
+            </summary>
+        </member>
+        <member name="P:CRIC.Shanglv.Lib.Util.Entity.SiteCity.CityShort">
+            <summary>
+            城市简称
+            </summary>
+        </member>
+        <member name="P:CRIC.Shanglv.Lib.Util.Entity.SiteCity.LibCityPinYin">
+            <summary>
+            楼盘库城市拼音
+            </summary>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.BadWordParse.#ctor(System.String)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="filePath">脏词文件路径</param>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.BadWordParse.HasBadWord(System.String)">
+            <summary>
+            判断是否含有脏词
+            </summary>
+            <param name="text">待检测字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.BadWordParse.ReplaceBadWord(System.String)">
+            <summary>
+            将脏词替换为指定符合（默认为*）
+            </summary>
+            <param name="text">待处理字符串</param>
+            <returns></returns>
+        </member>
+        <member name="P:CRIC.Shanglv.Lib.Util.BadWordParse.IsHave">
+            <summary>
+            是否含有脏字
+            </summary>
+        </member>
+        <member name="P:CRIC.Shanglv.Lib.Util.BadWordParse.ReplaceString">
+            <summary>
+            替换后字符串
+            </summary>
+        </member>
+        <member name="P:CRIC.Shanglv.Lib.Util.BadWordParse.SplitString">
+            <summary>
+            脏字字典切割符
+            </summary>
+        </member>
+        <member name="P:CRIC.Shanglv.Lib.Util.BadWordParse.NewWord">
+            <summary>
+            更新后的字符串
+            </summary>
+        </member>
+        <member name="P:CRIC.Shanglv.Lib.Util.BadWordParse.BadWordFilePath">
+            <summary>
+            脏字字典文档路径
+            </summary>
+        </member>
+        <member name="T:CRIC.Shanglv.Lib.Util.QRCode">
+            <summary>
+            二维码图片类
+            </summary>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.QRCode.#ctor(System.String,System.Int32,System.Int32)">
+            <summary>
+            生成一个二维码
+            </summary>
+            <param name="inputText"></param>
+            <param name="width"></param>
+            <param name="height"></param>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.QRCode.DecodeRQCode(System.String)">
+            <summary>
+            解码
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.QRCode.toBitmap(com.google.zxing.common.ByteMatrix)">
+            <summary>
+            生产二维码图片
+            </summary>
+            <param name="matrix"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.QRCode.OutputImgStream(System.String,System.Int32,System.Int32)">
+            <summary>
+            输出图片流
+            </summary>
+            <param name="inputText"></param>
+            <param name="width"></param>
+            <param name="height"></param>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.ExcelUtil.ExportDownload(System.Data.DataTable,System.String)">
+            <summary>
+             生在Excel文件 
+            </summary>
+            <param name="data">DataTalbe</param>
+            <param name="Title">下载文件名称、表名称</param>
+        </member>
+        <member name="T:CRIC.Shanglv.Lib.Util.PhotoResizeTypeEnum">
+            <summary>
+            图片自定义类型枚举
+            </summary>
+            <remarks>add by bideliang on 2011/1/10</remarks>
+        </member>
+        <member name="F:CRIC.Shanglv.Lib.Util.PhotoResizeTypeEnum.Scaling">
+            <summary>
+            等比缩放
+            </summary>
+        </member>
+        <member name="F:CRIC.Shanglv.Lib.Util.PhotoResizeTypeEnum.Cut">
+            <summary>
+            裁剪
+            </summary>
+        </member>
+        <member name="F:CRIC.Shanglv.Lib.Util.PhotoResizeTypeEnum.FillUp">
+            <summary>
+            补白
+            </summary>
+        </member>
+        <member name="F:CRIC.Shanglv.Lib.Util.PhotoResizeTypeEnum.WidthBase">
+            <summary>
+            以宽度为准进行等比缩放
+            </summary>
+        </member>
+        <member name="F:CRIC.Shanglv.Lib.Util.PhotoResizeTypeEnum.HeightBase">
+            <summary>
+            以高度为准进行等比缩放
+            </summary>
+        </member>
+        <member name="T:CRIC.Shanglv.Lib.Util.Common">
+            <summary>
+            通用方法
+            </summary>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.Common.StrToMd5(System.String)">
+            <summary>
+            md5加密（8, 16）
+            </summary>
+            <param name="s">需要加密的字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.Common.StrToMd5All(System.String)">
+            <summary>
+            md5加密（8, 16）
+            </summary>
+            <param name="s">需要加密的字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.Common.StrToSHA1(System.String)">
+            <summary>
+            返回SHA1加密后的字符串
+            </summary>
+            <param name="str">需要加密的字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.Common.StrToSHA1Ex(System.String)">
+            <summary>
+            SHA1加密（3, 30）
+            </summary>
+            <param name="str">需要加密的字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.Common.GetReponseByURL(System.String,System.String,System.Text.Encoding)">
+            <summary>
+            根据地址和post数据得到返回值
+            </summary>
+            <param name="url">URL地址</param>
+            <param name="postString">POST数据</param>
+            <param name="encoding">字符串编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.Common.GetReponseByURL(System.String,System.String)">
+            <summary>
+            根据地址和post数据得到返回值(UTF-8)
+            </summary>
+            <param name="url">URL地址</param>
+            <param name="postString">POST数据</param>
+            <returns></returns>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.Common.DownloadStringByURL(System.String,System.Text.Encoding)">
+            <summary>
+            根据URL地址 编码格式得到下载数据
+            </summary>
+            <param name="url">URL地址</param>
+            <param name="encoding">字符串编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.Common.DownloadStringByURL(System.String)">
+            <summary>
+            根据URL地址得到下载数据（utf-8）
+            </summary>
+            <param name="url">URL地址</param>
+            <returns></returns>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.Common.GetNextWeekDayOfTheWeek(System.DateTime,System.Int32,System.Int32)">
+            <summary>
+            根据星期几来获取系统当前时间之后最近的那天
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.Common.GetCookie(System.String,System.String,System.Text.Encoding)">
+            <summary>
+            根据CookieName和Key得到Cookie值
+            </summary>
+            <param name="cookieName">Cookie名称</param>
+            <param name="key">Cookie键</param>
+            <param name="encoding">Cookie编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.Common.GetCookie(System.String,System.String)">
+            <summary>
+            根据CookieName和Key得到Cookie值(GB2312)
+            </summary>
+            <param name="cookieName"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.Common.IsEmail(System.String)">
+            <summary>
+            判断字符串是否为EMAIL格式
+            </summary>
+            <param name="email">邮箱字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.Common.IsIDCard(System.String)">
+            <summary>
+            判断字符串是否为证件号码格式，允许数字、字母和-
+            </summary>
+            <param name="idCard">证件号码字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.Common.IsIP(System.String)">
+            <summary>
+            是否为IP
+            </summary>
+            <param name="ip"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.Common.IsMobile(System.String)">
+            <summary>
+            判断字符串是否为手机号码格式
+            </summary>
+            <param name="mobile"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.Common.IsUserName(System.String)">
+            <summary>
+            判断用户是否合法，6到20位且不能包含特殊字符
+            </summary>
+            <param name="userName">用户名</param>
+            <returns></returns>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.Common.GetIP">
+            <summary>
+            获取IP地址
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.Common.StrToClear(System.String,System.Int32)">
+            <summary>
+            将全半角空格、空格符和HTML标签去除，仅保留字符
+            </summary>
+            <param name="s">字符串</param>
+            <param name="len">需要的字符长度</param>
+            <returns></returns>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.Common.TrimQuotCharacter(System.String)">
+            <summary>
+            截掉字符串首尾的引号
+            </summary>
+            <param name="oldString">原始字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.Common.StrToClear(System.String)">
+            <summary>
+            将全半角空格、空格符和HTML标签去除，仅保留字符
+            </summary>
+            <param name="s">字符串</param>
+            <param name="len">需要的字符长度</param>
+            <returns></returns>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.Common.ToSBC(System.String)">
+             <summary>
+             转全角的函数(SBC case)
+             </summary>
+             <param name="input">任意字符串</param>
+             <returns>全角字符串</returns>
+            <remarks>
+            全角空格为12288，半角空格为32
+            其他字符半角(33-126)与全角(65281-65374)的对应关系是：均相差65248
+            </remarks>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.Common.ToDBC(System.String)">
+             <summary> 转半角的函数(DBC case) </summary>
+             <param name="input">任意字符串</param>
+             <returns>半角字符串</returns>
+            <remarks>
+            全角空格为12288，半角空格为32
+            其他字符半角(33-126)与全角(65281-65374)的对应关系是：均相差65248
+            </remarks>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.Common.ReplaceSpace(System.String,System.Char)">
+            <summary>
+            将全角、半角空格换为指定字符
+            </summary>
+            <param name="input"></param>
+            <param name="rep"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.Common.SetAuthCookie(System.String,System.String)">
+            <summary>
+            SetAuthCookie,自定义Form登录cookie
+            </summary>
+            <param name="userName">用户名</param>
+            <param name="cookieName">cookie名称</param>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.Common.SetAuthCookie(System.String,System.String,System.Boolean,System.String,System.Int32)">
+            <summary>
+            SetAuthCookie,自定义Form登录cookie
+            </summary>
+            <param name="userName">用户名</param>
+            <param name="cookieName">cookie名称</param>
+            <param name="createPersistentCookie">是否创建持久化cookie</param>
+            <param name="strCookiePath">cookie保存路径</param>
+            <param name="timeOut">cookie过期时间,分钟计</param>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.Common.GetPhotoUrl(System.String,System.String,CRIC.Shanglv.Lib.Util.WatermarkTypeEnum)">
+            <summary>
+            获取图片自定义分辨率URL路径
+            </summary>
+            <param name="rootFolder">图片保存根文件夹</param>
+            <param name="photoUrl">图片保存路径</param>
+            <param name="width">图片宽度</param>
+            <param name="height">图片高度</param>
+            <param name="type">图片自定义类型枚举</param>
+            <returns>图片URL</returns>
+            <remarks>add by bideliang on 2011/1/10</remarks>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.Common.GetPhotoUrl(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            获取图片自定义分辨率URL路径
+            </summary>
+            <param name="rootFolder">图片保存根文件夹</param>
+            <param name="photoUrl">图片保存路径</param>
+            <param name="width">图片宽度</param>
+            <param name="height">图片高度</param>
+            <param name="type">图片自定义类型枚举</param>
+            <returns>图片URL</returns>
+            <remarks>add by bideliang on 2011/1/10</remarks>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.Common.GetPhotoUrl(System.String,System.String,System.Int32,System.Int32,CRIC.Shanglv.Lib.Util.PhotoResizeTypeEnum)">
+            <summary>
+            获取图片自定义分辨率URL路径
+            </summary>
+            <param name="rootFolder">图片保存根文件夹</param>
+            <param name="photoUrl">图片保存路径</param>
+            <param name="width">图片宽度</param>
+            <param name="height">图片高度</param>
+            <param name="type">图片自定义类型枚举</param>
+            <returns>图片URL</returns>
+            <remarks>add by bideliang on 2011/1/10</remarks>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.Common.GetPhotoUrl(System.String,System.String,System.Int32,System.Int32,CRIC.Shanglv.Lib.Util.PhotoResizeTypeEnum,CRIC.Shanglv.Lib.Util.WatermarkTypeEnum)">
+            <summary>
+            获取图片自定义分辨率URL路径
+            </summary>
+            <param name="rootFolder">图片保存根文件夹</param>
+            <param name="photoUrl">图片保存路径</param>
+            <param name="width">图片宽度</param>
+            <param name="height">图片高度</param>
+            <param name="type">图片自定义类型枚举</param>
+            <param name="watermarkType">图片水印类型</param>
+            <param name="imageQuality">图片质量0--100</param>
+            <returns>图片URL</returns>
+            <remarks>add by bideliang on 2011/1/10</remarks>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.Common.GetPhotoUrl(System.String,System.String,System.Int32,System.Int32,CRIC.Shanglv.Lib.Util.PhotoResizeTypeEnum,CRIC.Shanglv.Lib.Util.WatermarkTypeEnum,System.Int64)">
+            <summary>
+            获取图片自定义分辨率URL路径
+            </summary>
+            <param name="rootFolder">图片保存根文件夹</param>
+            <param name="photoUrl">图片保存路径</param>
+            <param name="width">图片宽度</param>
+            <param name="height">图片高度</param>
+            <param name="type">图片自定义类型枚举</param>
+            <param name="watermarkType">图片水印类型</param>
+            <param name="imageQuality">图片质量0--100</param>
+            <returns>图片URL</returns>
+            <remarks>add by bideliang on 2011/1/10</remarks>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.Common.GetBytesLength(System.String)">
+            <summary>
+            获取字符串中的字节长度
+            </summary>
+            <param name="p_SrcString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.Common.GetSubString(System.String,System.Int32,System.String)">
+            <summary>
+            截取中文
+            </summary>
+            <param name="p_SrcString">字符串</param>
+            <param name="p_Length">单字节长度</param>
+            <param name="p_TailString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.Common.FormatPrice(System.Nullable{System.Decimal},System.String,System.Int32)">
+            <summary>
+            格式化价格
+            </summary>
+            <param name="price">价格</param>
+            <param name="symbols">格式化符号，默认,</param>
+            <param name="decimalNums">格式几位小数,默认0</param>
+            <returns></returns>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.Common.SetResponseHeader">
+            <summary>
+            设置Response Header中的属性
+            </summary>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.Common.StrToDecimal(System.Nullable{System.Decimal},System.String,System.String)">
+            <summary>
+            保留2位小数并去除末尾的0, Tangnie 2011-8-24
+            </summary>
+            <param name="d"></param>
+            <param name="defString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.Common.GetRegionDes(System.Nullable{System.Decimal},System.Nullable{System.Decimal},System.String,System.String)">
+            <summary>
+            获取区间数值描述  Tangnie 2011-8-24
+            </summary>
+            <param name="min"></param>
+            <param name="max"></param>
+            <param name="defString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.Common.GenerationRandomNum(System.Int32)">
+            <summary>
+            生成字母+数字的随机数
+            </summary>
+            <param name="length"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.Common.StringArrayToString(System.String[],System.String)">
+            <summary>
+            分割字符串数组,拼成字符串
+            </summary>
+            <param name="strArray"></param>
+            <param name="strSplit"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.Common.GetStringFromStream(System.IO.Stream,System.Int32,System.String)">
+            <summary>
+            Stream转换为字符串
+            </summary>
+            <param name="stream">数据流对象</param>
+            <param name="length">数据流长度</param>
+            <param name="charset">编码格式</param>
+            <returns></returns>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.Common.FormatFileSize(System.Int64)">
+            <summary>
+            格式化Byte为单位的文件大小为：KB，MB
+            0.00MB
+            </summary>
+            <param name="byteSize"></param>
+            <returns>0.00MB</returns>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.Common.DeleteNewsNginxCache(System.String,System.String,System.String)">
+            <summary>
+            删除新闻
+            </summary>
+            <param name="url">无pn参数的新闻链接</param>
+            <param name="content">新闻内容</param>
+            <remarks>add by fmf@2011-12-08</remarks>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.Common.ConvertChineseToPinyin(System.String)">
+            <summary>
+            将汉字转换为拼音
+            </summary>
+            <param name="content">带转换的内容</param>
+            <returns></returns>
+            <remarks>added by bideliang on 2012/1/11</remarks>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.Common.GetPinyin(System.String)">
+            <summary>
+            获取拼音
+            </summary>
+            <param name="pinyin"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.Common.IsChineseLetter(System.Char)">
+            <summary>
+            判断字符是否为汉字
+            </summary>
+            <param name="c">字符</param>
+            <returns></returns>
+            <remarks>added by bideliang on 2012/1/11</remarks>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.Common.GetPath(System.String)">
+            <summary>
+            获取服务器路径
+            </summary>
+            <param name="strPath">相对路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.Common.GetImageCodecInfo(System.String)">
+            <summary>
+            生成图片时，获取图片类型
+            </summary>
+            <param name="mimeType">包含编码解码器的多用途网际邮件扩充协议 (MIME) 类型的字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.Common.GetImageEncoderParameters(System.Int64)">
+            <summary>
+            获取图片编码参数(用于控制图片生成的大小)
+            </summary>
+            <param name="quality">压缩质量比(1-100)</param>
+            <returns></returns>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.Common.GetDCPhotoUrl(System.String,System.String,CRIC.Shanglv.Lib.Util.WatermarkTypeEnum,CRIC.Shanglv.Lib.Util.WatermarkEnum)">
+            <summary>
+            获取图片自定义分辨率URL路径
+            </summary>
+            <param name="rootFolder">图片保存根文件夹</param>
+            <param name="photoUrl">图片保存路径</param>
+            <param name="width">图片宽度</param>
+            <param name="height">图片高度</param>
+            <param name="type">图片自定义类型枚举</param>
+            <returns>图片URL</returns>
+            <remarks>add by bideliang on 2011/1/10</remarks>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.Common.GetDCPhotoUrl(System.String,System.String,System.Int32,System.Int32,CRIC.Shanglv.Lib.Util.WatermarkEnum)">
+            <summary>
+            获取图片自定义分辨率URL路径
+            </summary>
+            <param name="rootFolder">图片保存根文件夹</param>
+            <param name="photoUrl">图片保存路径</param>
+            <param name="width">图片宽度</param>
+            <param name="height">图片高度</param>
+            <param name="type">图片自定义类型枚举</param>
+            <returns>图片URL</returns>
+            <remarks>add by bideliang on 2011/1/10</remarks>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.Common.GetDCPhotoUrl(System.String,System.String,System.Int32,System.Int32,CRIC.Shanglv.Lib.Util.PhotoResizeTypeEnum,CRIC.Shanglv.Lib.Util.WatermarkEnum)">
+            <summary>
+            获取图片自定义分辨率URL路径
+            </summary>
+            <param name="rootFolder">图片保存根文件夹</param>
+            <param name="photoUrl">图片保存路径</param>
+            <param name="width">图片宽度</param>
+            <param name="height">图片高度</param>
+            <param name="type">图片自定义类型枚举</param>
+            <returns>图片URL</returns>
+            <remarks>add by bideliang on 2011/1/10</remarks>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.Common.GetDCPhotoUrl(System.String,System.String,System.Int32,System.Int32,CRIC.Shanglv.Lib.Util.PhotoResizeTypeEnum,CRIC.Shanglv.Lib.Util.WatermarkTypeEnum,CRIC.Shanglv.Lib.Util.WatermarkEnum)">
+            <summary>
+            获取图片自定义分辨率URL路径
+            </summary>
+            <param name="rootFolder">图片保存根文件夹</param>
+            <param name="photoUrl">图片保存路径</param>
+            <param name="width">图片宽度</param>
+            <param name="height">图片高度</param>
+            <param name="type">图片自定义类型枚举</param>
+            <param name="watermarkType">图片水印类型</param>
+            <returns>图片URL</returns>
+            <remarks>add by bideliang on 2011/1/10</remarks>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.Common.GetDataCenterResizeType(CRIC.Shanglv.Lib.Util.PhotoResizeTypeEnum)">
+            <summary>
+            获取数据中心裁剪方式
+            </summary>
+            <param name="resizeType">自定义裁剪方式</param>
+            <returns></returns>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.Common.GetDataCenterWatermarkType(CRIC.Shanglv.Lib.Util.WatermarkTypeEnum)">
+            <summary>
+            获取数据中心水印位置
+            </summary>
+            <param name="watermarkType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.Common.GetDataCenterWatermark(System.Int32,System.String)">
+            <summary>
+            获取数据中心水印图片
+            </summary>
+            <param name="width">图片宽度</param>
+            <param name="rootFolder">文件夹</param>
+            <returns></returns>
+        </member>
+        <member name="F:CRIC.Shanglv.Lib.Util.Common.EARTH_RADIUS_KM">
+            <summary>
+            地球半径（KM）
+            </summary>
+        </member>
+        <member name="P:CRIC.Shanglv.Lib.Util.Common.PhotoResizePath">
+            <summary>
+            图片跟路径
+            </summary>
+        </member>
+        <member name="P:CRIC.Shanglv.Lib.Util.Common.IsDataCenter">
+            <summary>
+            图片来源，true：数据中心 false：res10
+            </summary>
+        </member>
+        <member name="T:CRIC.Shanglv.Lib.Util.Entity.DataParameter">
+            <summary>
+            DataParameter参数类
+            </summary>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.Entity.DataParameter.#ctor(System.String)">
+            <summary>
+            构造参数
+            </summary>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.Entity.DataParameter.#ctor(System.String,System.Object,System.String,System.String)">
+            <summary>
+            构造参数
+            </summary>
+            <param name="name">参数名称</param>
+            <param name="value">参数值</param>
+            <param name="relation">关系运算符</param>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.Entity.DataParameter.#ctor(System.String,System.Object,System.Data.DbType,System.String,System.String)">
+            <summary>
+            构造参数
+            </summary>
+            <param name="name">参数名称</param>
+            <param name="value">参数值</param>
+            <param name="relation">关系运算符</param>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.Entity.DataParameter.#ctor(System.String,System.Object)">
+            <summary>
+            构造参数
+            </summary>
+            <param name="name">参数名称</param>
+            <param name="value">参数值</param>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.Entity.DataParameter.ToString">
+            <summary>
+            生成字符串
+            </summary>
+            <returns>返回字符串的名值对</returns>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.Entity.DataParameter.ToEncodedString">
+            <summary>
+            生成encode字符串
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.Entity.DataParameter.ToParameterString">
+            <summary>
+            生成Parameter字符串
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.Entity.DataParameter.Create(System.String,System.Object)">
+            <summary>
+            创建Travel参数
+            </summary>
+            <param name="name">参数名称</param>
+            <param name="value">参数值</param>
+            <returns>返回Travel参数</returns>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.Entity.DataParameter.Create(System.String,System.Object,System.String,System.String,System.Data.DbType)">
+            <summary>
+            创建Travel参数
+            </summary>
+            <param name="name">参数名称</param>
+            <param name="value">参数值</param>
+            <returns>返回Travel参数</returns>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.Entity.DataParameter.CompareTo(System.Object)">
+            <summary>
+            比较参数是否相同
+            </summary>
+            <param name="obj">要同当前参数比较的参数</param>
+            <returns>0相同,非0则不同</returns>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.Entity.DataParameter.ConvertArrayToString(System.Array)">
+            <summary>
+            将参数数组转换为名值串
+            </summary>
+            <param name="a">Travel参数数组</param>
+            <returns>转换的名值串,名值串之间用逗号分隔</returns>
+        </member>
+        <member name="P:CRIC.Shanglv.Lib.Util.Entity.DataParameter.Name">
+            <summary>
+            获取参数名称
+            </summary>
+        </member>
+        <member name="P:CRIC.Shanglv.Lib.Util.Entity.DataParameter.Value">
+            <summary>
+            获取参数值
+            </summary>
+        </member>
+        <member name="P:CRIC.Shanglv.Lib.Util.Entity.DataParameter.DbType">
+            <summary>
+            数据类型
+            </summary>
+        </member>
+        <member name="P:CRIC.Shanglv.Lib.Util.Entity.DataParameter.Relation">
+            <summary>
+            关系运算符
+            </summary>
+        </member>
+        <member name="P:CRIC.Shanglv.Lib.Util.Entity.DataParameter.Logical">
+            <summary>
+            逻辑运算符
+            </summary>
+        </member>
+        <member name="P:CRIC.Shanglv.Lib.Util.Entity.DataParameter.ParameterSqlText">
+            <summary>
+            自定义参数化sqlText
+            </summary>
+        </member>
+        <member name="P:CRIC.Shanglv.Lib.Util.Entity.DataParameter.EncodedValue">
+            <summary>
+            获取参数值
+            </summary>
+        </member>
+        <member name="T:CRIC.Shanglv.Lib.Util.ValidateCode">
+            <summary>
+            生成验证码的类
+            </summary>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.ValidateCode.#ctor(System.String,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            构造出一个四位的验证码
+            </summary>
+            <param name="sessionName"></param>
+            <param name="width">建议52</param>
+            <param name="height">建议26</param>
+            <remarks>此构造方法已废弃不用，请用无参构造函数实例化对象，并调运GetValidateCode方法</remarks>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.ValidateCode.#ctor(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="width"></param>
+            <param name="height"></param>
+            <param name="fontSize"></param>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.ValidateCode.GetValidateCode(System.String)">
+            <summary>
+            获取验证码字符串，并记录到Cookie里。
+            </summary>
+            <param name="key">键</param>
+            <returns>验证码字符串</returns>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.ValidateCode.SetPageNoCache">
+            
+            <summary>
+            设置页面不被缓存
+            </summary>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.ValidateCode.GetRandomCode">
+            
+            <summary>
+            取得一个 4 位的随机码
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.ValidateCode.GetFont">
+            
+            <summary>
+            随机取一个字体
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.ValidateCode.GetFontStyle(System.Int32)">
+            
+            <summary>
+            取一个字体的样式
+            </summary>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.ValidateCode.GetBrush">
+            
+            <summary>
+            随机取一个笔刷
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.ValidateCode.OnPaint">
+            
+            <summary>
+            绘画事件
+            </summary>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.ValidateCode.Paint_Background(System.Drawing.Graphics)">
+            
+            <summary>
+            绘画背景颜色
+            </summary>
+            <param name="g"></param>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.ValidateCode.Paint_Border(System.Drawing.Graphics)">
+            
+            <summary>
+            绘画边框
+            </summary>
+            <param name="g"></param>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.ValidateCode.Paint_Text(System.Drawing.Graphics)">
+            
+            <summary>
+            绘画文字
+            </summary>
+            <param name="g"></param>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.ValidateCode.Paint_TextStain(System.Drawing.Bitmap)">
+            
+            <summary>
+            绘画文字噪音点
+            </summary>
+            <param name="g"></param>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.Pager.GetJumperForAjax(System.Int32,System.Int32,System.Int32,System.String,System.String,System.String)">
+            <summary>
+            根据ajax参数方法等输出pager代码
+            </summary>
+            <param name="pageIndex"></param>
+            <param name="pageSize"></param>
+            <param name="recordCount"></param>
+            <param name="ajaxProviderFormat"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.Pager.GetPagerHtml(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            输出页码
+            </summary>
+            <param name="pageIndex"></param>
+            <param name="pageSize"></param>
+            <param name="recordCount"></param>
+            <param name="houseID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.Lamda.CreateLumdaForQuery``2(System.String)">
+            <summary>
+            返回委托(需保证传入的字段名是传入的实体中的属性，否则异常)
+            </summary>
+            <typeparam name="T">实体类</typeparam>
+            <typeparam name="TValue">字段的类型</typeparam>
+            <param name="name">实体中字段名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:CRIC.Shanglv.Lib.Util.Lamda.CreateLumdaForQuery``2(System.String,``1)">
+            <summary>
+            返回lamda(需保证传入的字段名是传入的实体中的属性，否则异常)
+            </summary>
+            <typeparam name="T">实体类</typeparam>
+            <typeparam name="TValue">字段的类型</typeparam>
+            <param name="name">字段名称</param>
+            <param name="value">字段的值</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
