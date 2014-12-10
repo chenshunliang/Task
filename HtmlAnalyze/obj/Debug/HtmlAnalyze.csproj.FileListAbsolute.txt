@@ -49,3 +49,6 @@ D:\Task\FileTask\HtmlAnalyze\bin\Debug\PanGu.xml
 D:\Task\HtmlAnalyze\bin\Debug\HtmlAnalyze.exe.config
 D:\Task\HtmlAnalyze\obj\Debug\HtmlAnalyze.exe
 D:\Task\HtmlAnalyze\obj\Debug\HtmlAnalyze.pdb
+D:\Task\HtmlAnalyze\bin\Debug\HtmlAnalyze.exe
+D:\Task\HtmlAnalyze\bin\Debug\HtmlAnalyze.pdb
+D:\Task\HtmlAnalyze\obj\Debug\HtmlAnalyze.csprojResolveAssemblyReference.cache

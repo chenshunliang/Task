@@ -82,11 +82,10 @@ namespace FilesReadTask
         {
             string nums = this.labNum.Text.Split('/')[0];
             string numsAll = this.labNum.Text.Split('/')[1];
-            nums = (int.Parse(nums) + 1).ToString();
 
             //内容进行读取
-
-
+            int num = HtmlAnalyze.HTMLAnalyze(filePath.ToString());
+            nums = (int.Parse(nums) + num).ToString();
             this.proBar.Value = int.Parse(nums);
             this.labNum.Text = nums + "/" + numsAll;
 
@@ -95,6 +94,7 @@ namespace FilesReadTask
                 watch.Stop();
                 this.labInfo.Text = "导入完毕,耗时" + watch.Elapsed.TotalSeconds.ToString("f2") + "秒";
             }
+            this.Refresh();
         }
     }
 }

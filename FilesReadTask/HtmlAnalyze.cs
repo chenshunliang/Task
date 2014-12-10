@@ -1,20 +1,19 @@
-﻿using System;
+﻿using CRIC.Shanglv.Lib.DiChanRen.Entity;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using CRIC.Shanglv.Lib.DiChanRen.BLL;
-using CRIC.Shanglv.Lib.DiChanRen.Entity;
 using Winista.Text.HtmlParser;
 using Winista.Text.HtmlParser.Filters;
 using Winista.Text.HtmlParser.Lex;
 using Winista.Text.HtmlParser.Util;
 
-namespace HtmlAnalyze
+namespace FilesReadTask
 {
-    class Program
+    public class HtmlAnalyze
     {
         /// <summary>
         /// 
@@ -57,9 +56,10 @@ namespace HtmlAnalyze
             {"其他",99}
         };
 
-        static void Main(string[] args)
+
+        public static int HTMLAnalyze(string filePath)
         {
-            using (FileStream fs = new FileStream(@"C:\Users\shunliang\Desktop\jianlis\100009.html", FileMode.Open))
+            using (FileStream fs = new FileStream(filePath, FileMode.Open))
             {
                 using (StreamReader sr = new StreamReader(fs, Encoding.Default))
                 {
@@ -335,10 +335,9 @@ namespace HtmlAnalyze
                                 }
                                 break;
                         }
+                        return 1;
                     }
-
-                    Console.WriteLine(s.Trim(new char[] { ',' }));
-                    Console.ReadKey();
+                    return 1;
                 }
             }
         }
