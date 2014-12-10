@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{20E4380D-B983-41BE-8F90-AADCD1167814}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HtmlAnalyze</RootNamespace>
+    <AssemblyName>HtmlAnalyze</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BeITMemcached">
+      <HintPath>..\..\..\dichanren\SourceCode\DiChanren\trunk\CRIC.Shanglv.Web.DiChanRen\CRIC.Shanglv.Lib.DiChanRen\bin\Debug\BeITMemcached.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Core">
+      <HintPath>..\..\..\dichanren\SourceCode\DiChanren\trunk\CRIC.Shanglv.Web.DiChanRen\CRIC.Shanglv.Lib.DiChanRen\bin\Debug\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor">
+      <HintPath>..\..\..\dichanren\SourceCode\DiChanren\trunk\CRIC.Shanglv.Web.DiChanRen\CRIC.Shanglv.Lib.DiChanRen\bin\Debug\Castle.Windsor.dll</HintPath>
+    </Reference>
+    <Reference Include="ChnCharInfo">
+      <HintPath>..\..\..\dichanren\SourceCode\DiChanren\trunk\CRIC.Shanglv.Web.DiChanRen\CRIC.Shanglv.Lib.DiChanRen\bin\Debug\ChnCharInfo.dll</HintPath>
+    </Reference>
+    <Reference Include="CRIC.Shanglv.Lib.CacheService">
+      <HintPath>..\..\..\dichanren\SourceCode\DiChanren\trunk\CRIC.Shanglv.Web.DiChanRen\CRIC.Shanglv.Lib.DiChanRen\bin\Debug\CRIC.Shanglv.Lib.CacheService.dll</HintPath>
+    </Reference>
+    <Reference Include="CRIC.Shanglv.Lib.DiChanRen">
+      <HintPath>..\..\..\dichanren\SourceCode\DiChanren\trunk\CRIC.Shanglv.Web.DiChanRen\CRIC.Shanglv.Lib.DiChanRen\bin\Debug\CRIC.Shanglv.Lib.DiChanRen.dll</HintPath>
+    </Reference>
+    <Reference Include="CRIC.Shanglv.Lib.HttpSQS">
+      <HintPath>..\..\..\dichanren\SourceCode\DiChanren\trunk\CRIC.Shanglv.Web.DiChanRen\CRIC.Shanglv.Lib.DiChanRen\bin\Debug\CRIC.Shanglv.Lib.HttpSQS.dll</HintPath>
+    </Reference>
+    <Reference Include="CRIC.Shanglv.Lib.Log">
+      <HintPath>..\..\..\dichanren\SourceCode\DiChanren\trunk\CRIC.Shanglv.Web.DiChanRen\CRIC.Shanglv.Lib.DiChanRen\bin\Debug\CRIC.Shanglv.Lib.Log.dll</HintPath>
+    </Reference>
+    <Reference Include="CRIC.Shanglv.Lib.Search">
+      <HintPath>..\..\..\dichanren\SourceCode\DiChanren\trunk\CRIC.Shanglv.Web.DiChanRen\CRIC.Shanglv.Lib.DiChanRen\bin\Debug\CRIC.Shanglv.Lib.Search.dll</HintPath>
+    </Reference>
+    <Reference Include="CRIC.Shanglv.Lib.ThirdAccess">
+      <HintPath>..\..\..\dichanren\SourceCode\DiChanren\trunk\CRIC.Shanglv.Web.DiChanRen\CRIC.Shanglv.Lib.DiChanRen\bin\Debug\CRIC.Shanglv.Lib.ThirdAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="CRIC.Shanglv.Lib.Util">
+      <HintPath>..\..\..\dichanren\SourceCode\DiChanren\trunk\CRIC.Shanglv.Web.DiChanRen\CRIC.Shanglv.Lib.DiChanRen\bin\Debug\CRIC.Shanglv.Lib.Util.dll</HintPath>
+    </Reference>
+    <Reference Include="CRIC.Shanglv.Mongo">
+      <HintPath>..\..\..\dichanren\SourceCode\DiChanren\trunk\CRIC.Shanglv.Web.DiChanRen\CRIC.Shanglv.Lib.DiChanRen\bin\Debug\CRIC.Shanglv.Mongo.dll</HintPath>
+    </Reference>
+    <Reference Include="Hubble.Analyzer">
+      <HintPath>..\..\..\dichanren\SourceCode\DiChanren\trunk\CRIC.Shanglv.Web.DiChanRen\CRIC.Shanglv.Lib.DiChanRen\bin\Debug\Hubble.Analyzer.dll</HintPath>
+    </Reference>
+    <Reference Include="Hubble.Framework">
+      <HintPath>..\..\..\dichanren\SourceCode\DiChanren\trunk\CRIC.Shanglv.Web.DiChanRen\CRIC.Shanglv.Lib.DiChanRen\bin\Debug\Hubble.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Hubble.SQLClient">
+      <HintPath>..\..\..\dichanren\SourceCode\DiChanren\trunk\CRIC.Shanglv.Web.DiChanRen\CRIC.Shanglv.Lib.DiChanRen\bin\Debug\Hubble.SQLClient.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>C:\Users\chen\Desktop\htmlParse\bin\Debug\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\dichanren\SourceCode\DiChanren\trunk\CRIC.Shanglv.Web.DiChanRen\CRIC.Shanglv.Lib.DiChanRen\bin\Debug\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common">
+      <HintPath>..\..\..\dichanren\SourceCode\DiChanren\trunk\CRIC.Shanglv.Web.DiChanRen\CRIC.Shanglv.Lib.DiChanRen\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data">
+      <HintPath>..\..\..\dichanren\SourceCode\DiChanren\trunk\CRIC.Shanglv.Web.DiChanRen\CRIC.Shanglv.Lib.DiChanRen\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ObjectBuilder">
+      <HintPath>..\..\..\dichanren\SourceCode\DiChanren\trunk\CRIC.Shanglv.Web.DiChanRen\CRIC.Shanglv.Lib.DiChanRen\bin\Debug\Microsoft.Practices.ObjectBuilder.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Bson">
+      <HintPath>..\..\..\dichanren\SourceCode\DiChanren\trunk\CRIC.Shanglv.Web.DiChanRen\CRIC.Shanglv.Lib.DiChanRen\bin\Debug\MongoDB.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver">
+      <HintPath>..\..\..\dichanren\SourceCode\DiChanren\trunk\CRIC.Shanglv.Web.DiChanRen\CRIC.Shanglv.Lib.DiChanRen\bin\Debug\MongoDB.Driver.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\dichanren\SourceCode\DiChanren\trunk\CRIC.Shanglv.Web.DiChanRen\CRIC.Shanglv.Lib.DiChanRen\bin\Debug\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PanGu">
+      <HintPath>..\..\..\dichanren\SourceCode\DiChanren\trunk\CRIC.Shanglv.Web.DiChanRen\CRIC.Shanglv.Lib.DiChanRen\bin\Debug\PanGu.dll</HintPath>
+    </Reference>
+    <Reference Include="SolrNet">
+      <HintPath>..\..\..\dichanren\SourceCode\DiChanren\trunk\CRIC.Shanglv.Web.DiChanRen\CRIC.Shanglv.Lib.DiChanRen\bin\Debug\SolrNet.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Winista.HtmlParser">
+      <HintPath>C:\Users\chen\Desktop\htmlParse\bin\Debug\Winista.HtmlParser.dll</HintPath>
+    </Reference>
+    <Reference Include="zxing">
+      <HintPath>..\..\..\dichanren\SourceCode\DiChanren\trunk\CRIC.Shanglv.Web.DiChanRen\CRIC.Shanglv.Lib.DiChanRen\bin\Debug\zxing.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
