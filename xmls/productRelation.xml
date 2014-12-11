@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<products>
+  <product id="KB" name="云智库">
+    <city id="KB_VIP" name="云智库VIP会员"/>
+    <city id="KB_LSP" name="云智库零售产品"/>
+    <city id="KB_CZH" name="云智库充值产品"/>
+  </product>
+  <product id="VIDEO" name="视频">
+    <city id="VIDEO_LSP" name="视频零售产品"/>
+  </product>
+</products>
+

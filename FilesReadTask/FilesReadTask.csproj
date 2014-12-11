@@ -33,52 +33,52 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="BeITMemcached">
-      <HintPath>..\..\..\dichanren\SourceCode\DiChanren\trunk\CRIC.Shanglv.Web.DiChanRen\CRIC.Shanglv.Lib.DiChanRen\bin\Debug\BeITMemcached.dll</HintPath>
+      <HintPath>..\bins\BeITMemcached.dll</HintPath>
     </Reference>
     <Reference Include="Castle.Core">
-      <HintPath>..\..\..\dichanren\SourceCode\DiChanren\trunk\CRIC.Shanglv.Web.DiChanRen\CRIC.Shanglv.Lib.DiChanRen\bin\Debug\Castle.Core.dll</HintPath>
+      <HintPath>..\bins\Castle.Core.dll</HintPath>
     </Reference>
     <Reference Include="Castle.Windsor">
-      <HintPath>..\..\..\dichanren\SourceCode\DiChanren\trunk\CRIC.Shanglv.Web.DiChanRen\CRIC.Shanglv.Lib.DiChanRen\bin\Debug\Castle.Windsor.dll</HintPath>
+      <HintPath>..\bins\Castle.Windsor.dll</HintPath>
     </Reference>
     <Reference Include="ChnCharInfo">
-      <HintPath>..\..\..\dichanren\SourceCode\DiChanren\trunk\CRIC.Shanglv.Web.DiChanRen\CRIC.Shanglv.Lib.DiChanRen\bin\Debug\ChnCharInfo.dll</HintPath>
+      <HintPath>..\bins\ChnCharInfo.dll</HintPath>
     </Reference>
     <Reference Include="CRIC.Shanglv.Lib.CacheService">
-      <HintPath>..\..\..\dichanren\SourceCode\DiChanren\trunk\CRIC.Shanglv.Web.DiChanRen\CRIC.Shanglv.Lib.DiChanRen\bin\Debug\CRIC.Shanglv.Lib.CacheService.dll</HintPath>
+      <HintPath>..\bins\CRIC.Shanglv.Lib.CacheService.dll</HintPath>
     </Reference>
     <Reference Include="CRIC.Shanglv.Lib.DiChanRen">
-      <HintPath>..\..\..\dichanren\SourceCode\DiChanren\trunk\CRIC.Shanglv.Web.DiChanRen\CRIC.Shanglv.Lib.DiChanRen\bin\Debug\CRIC.Shanglv.Lib.DiChanRen.dll</HintPath>
+      <HintPath>..\bins\CRIC.Shanglv.Lib.DiChanRen.dll</HintPath>
     </Reference>
     <Reference Include="CRIC.Shanglv.Lib.HttpSQS">
-      <HintPath>..\..\..\dichanren\SourceCode\DiChanren\trunk\CRIC.Shanglv.Web.DiChanRen\CRIC.Shanglv.Lib.DiChanRen\bin\Debug\CRIC.Shanglv.Lib.HttpSQS.dll</HintPath>
+      <HintPath>..\bins\CRIC.Shanglv.Lib.HttpSQS.dll</HintPath>
     </Reference>
     <Reference Include="CRIC.Shanglv.Lib.Log">
-      <HintPath>..\..\..\dichanren\SourceCode\DiChanren\trunk\CRIC.Shanglv.Web.DiChanRen\CRIC.Shanglv.Lib.DiChanRen\bin\Debug\CRIC.Shanglv.Lib.Log.dll</HintPath>
+      <HintPath>..\bins\CRIC.Shanglv.Lib.Log.dll</HintPath>
     </Reference>
     <Reference Include="CRIC.Shanglv.Lib.Search">
-      <HintPath>..\..\..\dichanren\SourceCode\DiChanren\trunk\CRIC.Shanglv.Web.DiChanRen\CRIC.Shanglv.Lib.DiChanRen\bin\Debug\CRIC.Shanglv.Lib.Search.dll</HintPath>
+      <HintPath>..\bins\CRIC.Shanglv.Lib.Search.dll</HintPath>
     </Reference>
     <Reference Include="CRIC.Shanglv.Lib.ThirdAccess">
-      <HintPath>..\..\..\dichanren\SourceCode\DiChanren\trunk\CRIC.Shanglv.Web.DiChanRen\CRIC.Shanglv.Lib.DiChanRen\bin\Debug\CRIC.Shanglv.Lib.ThirdAccess.dll</HintPath>
+      <HintPath>..\bins\CRIC.Shanglv.Lib.ThirdAccess.dll</HintPath>
     </Reference>
     <Reference Include="CRIC.Shanglv.Lib.Util">
-      <HintPath>..\..\..\dichanren\SourceCode\DiChanren\trunk\CRIC.Shanglv.Web.DiChanRen\CRIC.Shanglv.Lib.DiChanRen\bin\Debug\CRIC.Shanglv.Lib.Util.dll</HintPath>
+      <HintPath>..\bins\CRIC.Shanglv.Lib.Util.dll</HintPath>
     </Reference>
     <Reference Include="CRIC.Shanglv.Mongo">
-      <HintPath>..\..\..\dichanren\SourceCode\DiChanren\trunk\CRIC.Shanglv.Web.DiChanRen\CRIC.Shanglv.Lib.DiChanRen\bin\Debug\CRIC.Shanglv.Mongo.dll</HintPath>
+      <HintPath>..\bins\CRIC.Shanglv.Mongo.dll</HintPath>
     </Reference>
     <Reference Include="Hubble.Analyzer">
-      <HintPath>..\..\..\dichanren\SourceCode\DiChanren\trunk\CRIC.Shanglv.Web.DiChanRen\CRIC.Shanglv.Lib.DiChanRen\bin\Debug\Hubble.Analyzer.dll</HintPath>
+      <HintPath>..\bins\Hubble.Analyzer.dll</HintPath>
     </Reference>
     <Reference Include="Hubble.Framework">
-      <HintPath>..\..\..\dichanren\SourceCode\DiChanren\trunk\CRIC.Shanglv.Web.DiChanRen\CRIC.Shanglv.Lib.DiChanRen\bin\Debug\Hubble.Framework.dll</HintPath>
+      <HintPath>..\bins\Hubble.Framework.dll</HintPath>
     </Reference>
     <Reference Include="Hubble.SQLClient">
-      <HintPath>..\..\..\dichanren\SourceCode\DiChanren\trunk\CRIC.Shanglv.Web.DiChanRen\CRIC.Shanglv.Lib.DiChanRen\bin\Debug\Hubble.SQLClient.dll</HintPath>
+      <HintPath>..\bins\Hubble.SQLClient.dll</HintPath>
     </Reference>
     <Reference Include="ICSharpCode.SharpZipLib">
-      <HintPath>C:\Users\chen\Desktop\htmlParse\bin\Debug\ICSharpCode.SharpZipLib.dll</HintPath>
+      <HintPath>..\bins\ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
     <Reference Include="log4net">
       <HintPath>C:\Users\shunliang\Desktop\DiChanRen\trunk\CRIC.Shanglv.Web.DiChanRen\CRIC.Shanglv.Lib.DiChanRen\bin\Debug\log4net.dll</HintPath>
@@ -95,22 +95,19 @@
     </Reference>
     <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="MongoDB.Bson">
-      <HintPath>..\..\..\dichanren\SourceCode\DiChanren\trunk\CRIC.Shanglv.Web.DiChanRen\CRIC.Shanglv.Lib.DiChanRen\bin\Debug\MongoDB.Bson.dll</HintPath>
+      <HintPath>..\bins\MongoDB.Bson.dll</HintPath>
     </Reference>
     <Reference Include="MongoDB.Driver">
-      <HintPath>..\..\..\dichanren\SourceCode\DiChanren\trunk\CRIC.Shanglv.Web.DiChanRen\CRIC.Shanglv.Lib.DiChanRen\bin\Debug\MongoDB.Driver.dll</HintPath>
+      <HintPath>..\bins\MongoDB.Driver.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>C:\Users\shunliang\Desktop\DiChanRen\trunk\CRIC.Shanglv.Web.DiChanRen\CRIC.Shanglv.Lib.DiChanRen\bin\Debug\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json.Fakes">
-      <HintPath>FakesAssemblies\Newtonsoft.Json.Fakes.dll</HintPath>
-    </Reference>
     <Reference Include="PanGu">
-      <HintPath>..\..\..\dichanren\SourceCode\DiChanren\trunk\CRIC.Shanglv.Web.DiChanRen\CRIC.Shanglv.Lib.DiChanRen\bin\Debug\PanGu.dll</HintPath>
+      <HintPath>..\bins\PanGu.dll</HintPath>
     </Reference>
     <Reference Include="SolrNet">
-      <HintPath>..\..\..\dichanren\SourceCode\DiChanren\trunk\CRIC.Shanglv.Web.DiChanRen\CRIC.Shanglv.Lib.DiChanRen\bin\Debug\SolrNet.dll</HintPath>
+      <HintPath>..\bins\SolrNet.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -124,7 +121,7 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Winista.HtmlParser">
-      <HintPath>C:\Users\chen\Desktop\htmlParse\bin\Debug\Winista.HtmlParser.dll</HintPath>
+      <HintPath>..\bins\Winista.HtmlParser.dll</HintPath>
     </Reference>
     <Reference Include="zxing">
       <HintPath>C:\Users\shunliang\Desktop\DiChanRen\trunk\CRIC.Shanglv.Web.DiChanRen\CRIC.Shanglv.Lib.DiChanRen\bin\Debug\zxing.dll</HintPath>

@@ -55,7 +55,7 @@ namespace FilesReadTask
             this.labInfo.Text = "文件扫描完毕,正在导入";
             FileInfo[] files = di.GetFiles("*.html");
             string content = "";
-            using (FileStream fs = new FileStream(@"d:\ReadLog.txt", FileMode.OpenOrCreate, FileAccess.ReadWrite))
+            using (FileStream fs = new FileStream(@"d:\ReadLog.txt", FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.ReadWrite))
             {
                 using (StreamReader sr = new StreamReader(fs, Encoding.Default))
                 {
@@ -102,7 +102,7 @@ namespace FilesReadTask
             //}
             //else
             //{
-                ReadFileContent(file);
+            ReadFileContent(file);
             //}
         }
 
@@ -112,42 +112,44 @@ namespace FilesReadTask
             FileInfo fileInfo = (FileInfo)file;
             try
             {
-                string numsAll = this.labNum.Text.Split('/')[1];
-
-                //内容进行读取
-                Resume resume = HtmlAnalyze.HTMLAnalyze(fileInfo.FullName);
-                //进行导入
-                long UID = 1; //ResumeBLL.Add(resume);
-                nums += 1;
-                this.proBar.Value = nums;
-                this.labNum.Text = nums + "/" + numsAll;
-
-                if (UID > 0)
+                lock ("lock")
                 {
-                    //解析导入成功
-                    using (FileStream fs = new FileStream(@"d:\ReadLog.txt", FileMode.Append, FileAccess.Write))
+                    string numsAll = this.labNum.Text.Split('/')[1];
+
+                    //内容进行读取
+                    Resume resume = HtmlAnalyze.HTMLAnalyze(fileInfo.FullName);
+                    //进行导入
+                    long UID = 1; //ResumeBLL.Add(resume);
+                    nums += 1;
+                    this.proBar.Value = nums;
+                    this.labNum.Text = nums + "/" + numsAll;
+
+                    if (UID > 0)
                     {
-                        using (StreamWriter sw = new StreamWriter(fs, Encoding.Default))
+                        //解析导入成功
+                        using (FileStream fs = new FileStream(@"d:\ReadLog.txt", FileMode.Append, FileAccess.Write, FileShare.ReadWrite))
                         {
-                            sw.WriteLine("{0}|{1}", fileInfo.Name, "1");
+                            using (StreamWriter sw = new StreamWriter(fs, Encoding.Default))
+                            {
+                                sw.WriteLine("{0}|{1}", fileInfo.Name, "1");
+                            }
                         }
                     }
-                }
-                else
-                    throw new Exception("MongoDB导入失败");
+                    else
+                        throw new Exception("MongoDB导入失败");
 
-                if (nums.ToString() == numsAll)
-                {
-                    watch.Stop();
-                    this.labInfo.Text = "导入完毕,耗时" + watch.Elapsed.TotalSeconds.ToString("f2") + "秒";
-                    MessageBox.Show(this.labInfo.Text);
+                    if (nums.ToString() == numsAll)
+                    {
+                        watch.Stop();
+                        this.labInfo.Text = "导入完毕,耗时" + watch.Elapsed.TotalSeconds.ToString("f2") + "秒";
+                        MessageBox.Show(this.labInfo.Text);
+                    }
                 }
-                //this.Refresh();
             }
             catch (Exception ex)
             {
                 //解析导入成功
-                using (FileStream fs = new FileStream(@"d:\ReadLog.txt", FileMode.Append, FileAccess.Write))
+                using (FileStream fs = new FileStream(@"d:\ReadLog.txt", FileMode.Append, FileAccess.Write, FileShare.ReadWrite))
                 {
                     using (StreamWriter sw = new StreamWriter(fs, Encoding.Default))
                     {
