@@ -158,6 +158,7 @@
     <Content Include="bin\Debug\CRIC.Shanglv.Lib.Util.xml" />
     <Content Include="bin\Debug\CRIC.Shanglv.Mongo.dll" />
     <Content Include="bin\Debug\CRIC.Shanglv.Mongo.pdb" />
+    <Content Include="bin\Debug\crossdomain.xml" />
     <Content Include="bin\Debug\HtmlAnalyze.exe" />
     <Content Include="bin\Debug\HtmlAnalyze.pdb" />
     <Content Include="bin\Debug\HtmlAnalyze.vshost.exe" />
@@ -179,6 +180,10 @@
     <Content Include="bin\Debug\Newtonsoft.Json.xml" />
     <Content Include="bin\Debug\PanGu.dll" />
     <Content Include="bin\Debug\PanGu.xml" />
+    <Content Include="bin\Debug\productRelation.xml" />
+    <Content Include="bin\Debug\SinaEmotions.xml" />
+    <Content Include="bin\Debug\SinaProvinces.xml" />
+    <Content Include="bin\Debug\SiteMap.xml" />
     <Content Include="bin\Debug\SolrNet.dll" />
     <Content Include="bin\Debug\Winista.HtmlParser.dll" />
     <Content Include="bin\Debug\Winista.HtmlParser.pdb" />

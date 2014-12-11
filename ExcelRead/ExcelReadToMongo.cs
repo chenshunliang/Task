@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Configuration;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
@@ -11,25 +10,20 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using CRIC.Shanglv.Lib.DiChanRen.BLL;
-using CRIC.Shanglv.Lib.DiChanRen.Entity;
 
-namespace FilesReadTask
+namespace ExcelRead
 {
-    public partial class ReadResumeToMongoDB : Form
+    public partial class ExcelReadToMongo : Form
     {
         private Stopwatch watch = null;
         private int nums = 0;
 
-        public ReadResumeToMongoDB()
+        public ExcelReadToMongo()
         {
             InitializeComponent();
             CheckForIllegalCrossThreadCalls = false;
             watch = new Stopwatch();
         }
-
-        //文件目录路径
-        //private static readonly string FileDir = ConfigurationManager.AppSettings["FileDir"];
 
         private void btnStart_Click(object sender, EventArgs e)
         {
@@ -39,7 +33,7 @@ namespace FilesReadTask
                 fbd.ShowNewFolderButton = false;
                 if (fbd.ShowDialog(this) == DialogResult.OK)
                 {
-                    watch.Start();
+                    //watch.Start();
                     this.btnStart.Enabled = false;
                     //准备线程
                     this.labInfo.Text = "正在扫描文件";
@@ -48,14 +42,13 @@ namespace FilesReadTask
             }
         }
 
-        //准备线程
         private void Prepare(object path)
         {
             DirectoryInfo di = new DirectoryInfo(path.ToString());
             this.labInfo.Text = "文件扫描完毕,正在导入";
-            FileInfo[] files = di.GetFiles("*.html");
+            FileInfo[] files = di.GetFiles("*.xls");
             string content = "";
-            using (FileStream fs = new FileStream(@"d:\ReadLog.txt", FileMode.OpenOrCreate, FileAccess.ReadWrite))
+            using (FileStream fs = new FileStream(@"d:\ExcelLog.txt", FileMode.OpenOrCreate, FileAccess.ReadWrite))
             {
                 using (StreamReader sr = new StreamReader(fs, Encoding.Default))
                 {
@@ -67,44 +60,31 @@ namespace FilesReadTask
             int length = files.Length;
             foreach (FileInfo item in files)
             {
-                if (!content.Contains(item.Name))
-                {
-                    //this.InvokeThread(item);
-                    Thread thread = new Thread(new ParameterizedThreadStart(InvokeThread));
-                    thread.IsBackground = true;
-                    thread.Start(item);
-                    Application.DoEvents();
-                    this.Refresh();
-                }
-                else
-                {
-                    nums += 1;
-                    this.proBar.Value = nums;
-                    string numsAll = this.labNum.Text.Split('/')[1];
-                    this.labNum.Text = nums + "/" + numsAll;
-                    if (nums.ToString() == numsAll)
-                    {
-                        watch.Stop();
-                        this.labInfo.Text = "导入完毕,耗时" + watch.Elapsed.TotalSeconds.ToString("f2") + "秒";
-                        MessageBox.Show(this.labInfo.Text);
-                    }
-                }
+                //if (!content.Contains(item.Name))
+                //{
+                Thread thread = new Thread(new ParameterizedThreadStart(ReadFileContent));
+                thread.IsBackground = true;
+                thread.Start(item);
+                Application.DoEvents();
+                this.Refresh();
+                //}
+                //else
+                //{
+                //    nums += 1;
+                //    this.proBar.Value = nums;
+                //    string numsAll = this.labNum.Text.Split('/')[1];
+                //    this.labNum.Text = nums + "/" + numsAll;
+                //    if (nums.ToString() == numsAll)
+                //    {
+                //        watch.Stop();
+                //        this.labInfo.Text = "导入完毕,耗时" + watch.Elapsed.TotalSeconds.ToString("f2") + "秒";
+                //        MessageBox.Show(this.labInfo.Text);
+                //    }
+                //}
             }
         }
 
         private delegate void ReadFile(object file);
-
-        private void InvokeThread(object file)
-        {
-            //if (!this.InvokeRequired)
-            //{
-            //    this.BeginInvoke(new ReadFile(ReadFileContent), file);
-            //}
-            //else
-            //{
-                ReadFileContent(file);
-            //}
-        }
 
         //读取文件内容
         private void ReadFileContent(object file)
@@ -115,7 +95,7 @@ namespace FilesReadTask
                 string numsAll = this.labNum.Text.Split('/')[1];
 
                 //内容进行读取
-                Resume resume = HtmlAnalyze.HTMLAnalyze(fileInfo.FullName);
+
                 //进行导入
                 long UID = 1; //ResumeBLL.Add(resume);
                 nums += 1;
@@ -125,7 +105,7 @@ namespace FilesReadTask
                 if (UID > 0)
                 {
                     //解析导入成功
-                    using (FileStream fs = new FileStream(@"d:\ReadLog.txt", FileMode.Append, FileAccess.Write))
+                    using (FileStream fs = new FileStream(@"d:\ExcelLog.txt", FileMode.Append, FileAccess.Write))
                     {
                         using (StreamWriter sw = new StreamWriter(fs, Encoding.Default))
                         {
@@ -147,7 +127,7 @@ namespace FilesReadTask
             catch (Exception ex)
             {
                 //解析导入成功
-                using (FileStream fs = new FileStream(@"d:\ReadLog.txt", FileMode.Append, FileAccess.Write))
+                using (FileStream fs = new FileStream(@"d:\ExcelLog.txt", FileMode.Append, FileAccess.Write))
                 {
                     using (StreamWriter sw = new StreamWriter(fs, Encoding.Default))
                     {

@@ -10,6 +10,7 @@ using Winista.Text.HtmlParser;
 using Winista.Text.HtmlParser.Filters;
 using Winista.Text.HtmlParser.Lex;
 using Winista.Text.HtmlParser.Util;
+using CRIC.Shanglv.Lib.DiChanRen.BLL;
 
 namespace FilesReadTask
 {
@@ -57,8 +58,9 @@ namespace FilesReadTask
         };
 
 
-        public static int HTMLAnalyze(string filePath)
+        public static Resume HTMLAnalyze(string filePath)
         {
+            Resume resume = new Resume();
             using (FileStream fs = new FileStream(filePath, FileMode.Open))
             {
                 using (StreamReader sr = new StreamReader(fs, Encoding.Default))
@@ -67,9 +69,10 @@ namespace FilesReadTask
                     string content = sr.ReadToEnd();
 
                     Lexer lex = new Lexer(content);
+                    string head = lex.NextNode().ToHtml().Trim();
+                    if (head != "简_历")
+                        throw new Exception("简历模版不对");
 
-
-                    Resume resume = new Resume();
                     resume.Intention = new Intention();
                     resume.Source = "导入";
 
@@ -103,25 +106,44 @@ namespace FilesReadTask
                                 var gropus = reg.Match(baseInfo).Groups;
                                 resume.Birthday = new DateTime(int.Parse(gropus[1].Value), int.Parse(gropus[2].Value), int.Parse(gropus[3].Value));
                                 //居住地
+                                resume.Location = new Location();
                                 reg = new Regex(@"居 住 地：</td><td>(.+?)</td>");
-                                //string stayCity = reg.Match(baseInfo).Groups[1].Value;
-                                //string stayProviceCode = DataDict.GetProvinceCodeByCity(stayCity);
-                                //string stayPro = DataDict.GetProvinceName(stayProviceCode);
-                                //string stayCityCode = DataDict.GetCityCode(stayPro, stayCity);
-                                //resume.Location.ProvinceCode = stayProviceCode;
-                                //resume.Location.CityCode = stayCityCode;
+                                string stayCity = reg.Match(baseInfo).Groups[1].Value;
+                                string stayProviceCode = DataDict.GetProvinceCodeByCity(new Regex(@"[市,省]").Replace(stayCity, "").Trim());
+                                if (stayProviceCode != "100" && stayProviceCode != "")
+                                {
+                                    string stayPro = DataDict.GetProvinceName(stayProviceCode);
+                                    string stayCityCode = DataDict.GetCityCode(stayPro, new Regex(@"[市,省]").Replace(stayCity, "").Trim());
+                                    resume.Location.ProvinceCode = stayProviceCode;
+                                    resume.Location.CityCode = stayCityCode;
+                                }
+                                else
+                                {
+                                    string proCode = DataDict.GetProvinceCode(new Regex(@"[市,省]").Replace(stayCity, "").Trim());
+                                    resume.Location.ProvinceCode = proCode;
+                                }
                                 //工作年限
                                 reg = new Regex(@"工作年限：</td><td>(.+?)</td>");
                                 string years = reg.Match(baseInfo).Groups[1].Value;
                                 resume.WorkYears = MyWorkYear[reg.Match(baseInfo).Groups[1].Value];
                                 //户口
                                 reg = new Regex(@"户    口：</td><td>(.+?)</td>");
-                                //string houseCity = reg.Match(baseInfo).Groups[1].Value;
-                                //string houseProviceCode = DataDict.GetProvinceCodeByCity(houseCity);
-                                //string housePro = DataDict.GetProvinceName(houseProviceCode);
-                                //string houseCityCode = DataDict.GetCityCode(housePro, houseCity);
-                                //resume.Location.ProvinceCode = houseProviceCode;
-                                //resume.Location.CityCode = houseCityCode;
+                                resume.AccountLoc = new Location();
+                                reg = new Regex(@"户    口：</td><td>(.+?)</td>");
+                                string houseCity = reg.Match(baseInfo).Groups[1].Value;
+                                string houseProviceCode = DataDict.GetProvinceCodeByCity(new Regex(@"[市,省]").Replace(houseCity, "").Trim());
+                                if (stayProviceCode != "100" && houseProviceCode != "")
+                                {
+                                    string housePro = DataDict.GetProvinceName(houseProviceCode);
+                                    string houseCityCode = DataDict.GetCityCode(housePro, new Regex(@"[市,省]").Replace(houseCity, "").Trim());
+                                    resume.AccountLoc.ProvinceCode = houseProviceCode;
+                                    resume.AccountLoc.CityCode = houseCityCode;
+                                }
+                                else
+                                {
+                                    string proCode = DataDict.GetProvinceCode(new Regex(@"[市,省]").Replace(houseCity, "").Trim());
+                                    resume.AccountLoc.ProvinceCode = proCode;
+                                }
                                 //当前年薪
                                 reg = new Regex(@"目前年薪：</td><td.+?>(.+?)</td>");
                                 resume.Salary = reg.Match(baseInfo).Groups[1].Value;
@@ -151,8 +173,8 @@ namespace FilesReadTask
                                 //目标地点
 
                                 //期望工资
-                                reg = new Regex(@"期望工资：</td><td.+?>(.+?)</td>");
-                                resume.Intention.Salary = reg.Match(jobIntension).Groups[1].Value;
+                                //reg = new Regex(@"期望工资：</td><td.+?>(.+?)</td>");
+                                //resume.Intention.Salary = reg.Match(jobIntension).Groups[1].Value;
                                 //目标职能
 
                                 break;
@@ -189,7 +211,7 @@ namespace FilesReadTask
                                                 var groups = regExp.Match(timeAndCompay).Groups;
                                                 we.StartDate = new DateTime(int.Parse(groups[1].Value), int.Parse(groups[2].Value), 1);
                                                 string[] times = groups[3].Value.Split('/');
-                                                we.EndDate = times.Length == 1 ? new DateTime() : new DateTime(int.Parse(times[0]), int.Parse(times[1]), 1);
+                                                we.EndDate = times.Length == 1 ? DateTime.Now : new DateTime(int.Parse(times[0]), int.Parse(times[1]), 1);
                                                 we.Company = groups[4].Value;
                                                 //所属行业
 
@@ -246,7 +268,7 @@ namespace FilesReadTask
                                                 var groups = regExp.Match(timeAndName).Groups;
                                                 pro.StartDate = new DateTime(int.Parse(groups[1].Value), int.Parse(groups[2].Value), 1);
                                                 string[] timeEnd = groups[3].Value.Trim().Split('/');
-                                                pro.EndDate = timeEnd.Length == 1 ? new DateTime() : new DateTime(int.Parse(timeEnd[0]), int.Parse(timeEnd[1]), 1);
+                                                pro.EndDate = timeEnd.Length == 1 ? DateTime.Now : new DateTime(int.Parse(timeEnd[0]), int.Parse(timeEnd[1]), 1);
                                                 pro.Name = groups[4].Value;
                                                 //责任描述
                                                 if (proZeList.Count > 0 && k < proZeList.Count)
@@ -277,7 +299,7 @@ namespace FilesReadTask
                                                     string[] timeStart = matchs[0].Groups[1].Value.Split(new string[] { "--" }, StringSplitOptions.RemoveEmptyEntries)[0].Split('/');
                                                     string[] timeEnd = matchs[0].Groups[1].Value.Split(new string[] { "--" }, StringSplitOptions.RemoveEmptyEntries)[1].Split('/');
                                                     edu.StartDate = new DateTime(int.Parse(timeStart[0]), int.Parse(timeStart[1]), 1);
-                                                    edu.EndDate = timeEnd.Length == 1 ? new DateTime() : new DateTime(int.Parse(timeEnd[0]), int.Parse(timeEnd[1]), 1);
+                                                    edu.EndDate = timeEnd.Length == 1 ? DateTime.Now : new DateTime(int.Parse(timeEnd[0]), int.Parse(timeEnd[1]), 1);
                                                     edu.School = regExp.Replace(matchs[1].Groups[1].Value, "").Trim();
                                                     edu.Major = regExp.Replace(matchs[2].Groups[1].Value, "").Trim();
                                                     edu.Degree = MyDegree[regExp.Replace(matchs[3].Groups[1].Value, "").Trim()];
@@ -335,9 +357,8 @@ namespace FilesReadTask
                                 }
                                 break;
                         }
-                        return 1;
                     }
-                    return 1;
+                    return resume;
                 }
             }
         }
