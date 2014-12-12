@@ -18,6 +18,11 @@ namespace ExcelRead
         private Stopwatch watch = null;
         private int nums = 0;
 
+        //线程控制相关
+        private bool IsStartThread = true;
+        private bool IsWhile = true;
+        private int index = 0;
+
         public ExcelReadToMongo()
         {
             InitializeComponent();
@@ -33,7 +38,7 @@ namespace ExcelRead
                 fbd.ShowNewFolderButton = false;
                 if (fbd.ShowDialog(this) == DialogResult.OK)
                 {
-                    //watch.Start();
+                    watch.Start();
                     this.btnStart.Enabled = false;
                     //准备线程
                     this.labInfo.Text = "正在扫描文件";
@@ -57,16 +62,14 @@ namespace ExcelRead
             }
             this.labNum.Text = "0/" + files.Length;
             this.proBar.Maximum = files.Length;
-            int length = files.Length;
+
+            Queue<FileInfo> fileQueue = new Queue<FileInfo>();
+
             foreach (FileInfo item in files)
             {
                 if (!content.Contains(item.Name))
                 {
-                    Thread thread = new Thread(new ParameterizedThreadStart(ReadFileContent));
-                    thread.IsBackground = true;
-                    thread.Start(item);
-                    Application.DoEvents();
-                    this.Refresh();
+                    fileQueue.Enqueue(item);
                 }
                 else
                 {
@@ -77,10 +80,34 @@ namespace ExcelRead
                     if (nums.ToString() == numsAll)
                     {
                         watch.Stop();
+                        IsWhile = false;
                         this.labInfo.Text = "导入完毕,耗时" + watch.Elapsed.TotalSeconds.ToString("f2") + "秒";
                         MessageBox.Show(this.labInfo.Text);
                     }
                 }
+            }
+
+            while (IsWhile)
+            {
+                while (IsStartThread)
+                {
+                    if (fileQueue.Count == 0)
+                        break;
+                    FileInfo item = fileQueue.Dequeue();
+
+                    Thread thread = new Thread(new ParameterizedThreadStart(ReadFileContent));
+                    thread.IsBackground = true;
+                    thread.Start(item);
+                    Application.DoEvents();
+                    this.Refresh();
+                    index++;
+                    if (index >= 5)
+                    {
+                        IsStartThread = false;
+                        index = 0;
+                    }
+                }
+                Application.DoEvents();
             }
         }
 
@@ -119,6 +146,9 @@ namespace ExcelRead
                     else
                         throw new Exception("MongoDB导入失败");
 
+                    if (nums % 5 == 0)
+                        IsStartThread = true;
+
                     if (nums.ToString() == numsAll)
                     {
                         watch.Stop();
@@ -139,6 +169,10 @@ namespace ExcelRead
                         this.proBar.Value = nums;
                         string numsAll = this.labNum.Text.Split('/')[1];
                         this.labNum.Text = nums + "/" + numsAll;
+
+                        if (nums % 5 == 0)
+                            IsStartThread = true;
+
                         if (nums.ToString() == numsAll)
                         {
                             watch.Stop();
@@ -148,6 +182,12 @@ namespace ExcelRead
                     }
                 }
             }
+        }
+
+        private void ExcelReadToMongo_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.ExitThread();
+            IsWhile = false;
         }
     }
 }

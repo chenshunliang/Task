@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReadResumeToMongoDB));
             this.btnStart = new System.Windows.Forms.Button();
             this.proBar = new System.Windows.Forms.ProgressBar();
             this.label1 = new System.Windows.Forms.Label();
@@ -91,10 +92,12 @@
             this.Controls.Add(this.proBar);
             this.Controls.Add(this.btnStart);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "ReadResumeToMongoDB";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "导入简历到数据库";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ReadResumeToMongoDB_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

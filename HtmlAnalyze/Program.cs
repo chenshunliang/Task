@@ -57,9 +57,20 @@ namespace HtmlAnalyze
             {"其他",99}
         };
 
+        /// <summary>
+        /// 熟练度级别
+        /// </summary>
+        public readonly static Dictionary<string, int> MyMasterLevel = new Dictionary<string, int>()
+        {
+            {"一般",1},
+            {"良好",2},
+            {"熟练",3},
+            {"精通",4}
+        };
+
         static void Main(string[] args)
         {
-            using (FileStream fs = new FileStream(@"C:\Users\chen\Desktop\jianli\100000.html", FileMode.Open))
+            using (FileStream fs = new FileStream(@"C:\Users\chen\Desktop\jianli - 副本\100013.html", FileMode.Open))
             {
                 using (StreamReader sr = new StreamReader(fs, Encoding.Default))
                 {
@@ -108,19 +119,7 @@ namespace HtmlAnalyze
                                 resume.Location = new Location();
                                 reg = new Regex(@"居 住 地：</td><td>(.+?)</td>");
                                 string stayCity = reg.Match(baseInfo).Groups[1].Value;
-                                string stayProviceCode = DataDict.GetProvinceCodeByCity(new Regex(@"[市,省]").Replace(stayCity, "").Trim());
-                                if (stayProviceCode != "100" && stayProviceCode != "")
-                                {
-                                    string stayPro = DataDict.GetProvinceName(stayProviceCode);
-                                    string stayCityCode = DataDict.GetCityCode(stayPro, new Regex(@"[市,省]").Replace(stayCity, "").Trim());
-                                    resume.Location.ProvinceCode = stayProviceCode;
-                                    resume.Location.CityCode = stayCityCode;
-                                }
-                                else
-                                {
-                                    string proCode = DataDict.GetProvinceCode(new Regex(@"[市,省]").Replace(stayCity, "").Trim());
-                                    resume.Location.ProvinceCode = proCode;
-                                }
+                                resume.Location = GetLocation(stayCity);
                                 //工作年限
                                 reg = new Regex(@"工作年限：</td><td>(.+?)</td>");
                                 string years = reg.Match(baseInfo).Groups[1].Value;
@@ -129,19 +128,7 @@ namespace HtmlAnalyze
                                 resume.AccountLoc = new Location();
                                 reg = new Regex(@"户    口：</td><td>(.+?)</td>");
                                 string houseCity = reg.Match(baseInfo).Groups[1].Value;
-                                string houseProviceCode = DataDict.GetProvinceCodeByCity(new Regex(@"[市,省]").Replace(houseCity, "").Trim());
-                                if (stayProviceCode != "100" && houseProviceCode != "")
-                                {
-                                    string housePro = DataDict.GetProvinceName(houseProviceCode);
-                                    string houseCityCode = DataDict.GetCityCode(housePro, new Regex(@"[市,省]").Replace(houseCity, "").Trim());
-                                    resume.AccountLoc.ProvinceCode = houseProviceCode;
-                                    resume.AccountLoc.CityCode = houseCityCode;
-                                }
-                                else
-                                {
-                                    string proCode = DataDict.GetProvinceCode(new Regex(@"[市,省]").Replace(houseCity, "").Trim());
-                                    resume.AccountLoc.ProvinceCode = proCode;
-                                }
+                                resume.AccountLoc = GetLocation(houseCity);
                                 //当前年薪
                                 reg = new Regex(@"目前年薪：</td><td.+?>(.+?)</td>");
                                 resume.Salary = reg.Match(baseInfo).Groups[1].Value;
@@ -169,7 +156,13 @@ namespace HtmlAnalyze
                                 string jobs = reg.Match(jobIntension).Groups[1].Value;
                                 resume.Intention.Job = jobs.Split('/').ToList();
                                 //目标地点
-
+                                reg = new Regex(@"目标地点：</td><td.+?>(.+?)</td>");
+                                string loca = reg.Match(jobIntension).Groups[1].Value;
+                                string[] citys = loca.Split(new char[] { '，' }, StringSplitOptions.RemoveEmptyEntries);
+                                for (int k = 0; k < citys.Length; k++)
+                                {
+                                    resume.Intention.Location.Add(GetLocation(citys[k]));
+                                }
                                 //期望工资
                                 //reg = new Regex(@"期望工资：</td><td.+?>(.+?)</td>");
                                 //resume.Intention.Salary = reg.Match(jobIntension).Groups[1].Value;
@@ -344,8 +337,8 @@ namespace HtmlAnalyze
                                                 regExp = new Regex(@"<td.+?>(.+?)</td>");
                                                 var matchs = regExp.Matches(lanCate);
                                                 lang.LanguageDesc = matchs[0].Groups[1].Value.Trim();
-
-
+                                                lang.ListenSpeak = MyMasterLevel[matchs[1].Groups[1].Value.Trim()];
+                                                lang.ReadWrite = MyMasterLevel[matchs[1].Groups[1].Value.Trim()];
                                                 resume.Language.Add(lang);
                                             }
                                             break;
@@ -361,6 +354,26 @@ namespace HtmlAnalyze
                     Console.ReadKey();
                 }
             }
+        }
+
+        private static Location GetLocation(string cityOrProvice)
+        {
+            Location location = new Location();
+            string houseCity = cityOrProvice;
+            string houseProviceCode = DataDict.GetProvinceCodeByCity(new Regex(@"[市,省]").Replace(houseCity, "").Trim());
+            if (houseProviceCode != "100" && houseProviceCode != "")
+            {
+                string housePro = DataDict.GetProvinceName(houseProviceCode);
+                string houseCityCode = DataDict.GetCityCode(housePro, new Regex(@"[市,省]").Replace(houseCity, "").Trim());
+                location.ProvinceCode = houseProviceCode;
+                location.CityCode = houseCityCode;
+            }
+            else
+            {
+                string proCode = DataDict.GetProvinceCode(new Regex(@"[市,省]").Replace(houseCity, "").Trim());
+                location.ProvinceCode = proCode;
+            }
+            return location;
         }
     }
 }
