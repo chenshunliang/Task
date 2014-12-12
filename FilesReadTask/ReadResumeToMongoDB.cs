@@ -70,7 +70,7 @@ namespace FilesReadTask
                 if (!content.Contains(item.Name))
                 {
                     //this.InvokeThread(item);
-                    Thread thread = new Thread(new ParameterizedThreadStart(InvokeThread));
+                    Thread thread = new Thread(new ParameterizedThreadStart(ReadFileContent));
                     thread.IsBackground = true;
                     thread.Start(item);
                     Application.DoEvents();
@@ -93,18 +93,6 @@ namespace FilesReadTask
         }
 
         private delegate void ReadFile(object file);
-
-        private void InvokeThread(object file)
-        {
-            //if (!this.InvokeRequired)
-            //{
-            //    this.BeginInvoke(new ReadFile(ReadFileContent), file);
-            //}
-            //else
-            //{
-            ReadFileContent(file);
-            //}
-        }
 
         //读取文件内容
         private void ReadFileContent(object file)
