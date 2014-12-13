@@ -86,4 +86,8 @@ D:\Task\FileTask\FilesReadTask\obj\Debug\FilesReadTask.csprojFakesResolveAssembl
 D:\Task\FilesReadTask\obj\Debug\FilesReadTask.csprojFakesResolveAssemblyReference.cache
 D:\Task\FilesReadTask\bin\Debug\Microsoft.QualityTools.Testing.Fakes.dll
 D:\Task\FilesReadTask\bin\Debug\zh-Hans\Microsoft.QualityTools.Testing.Fakes.resources.dll
+D:\Task\FilesReadTask\bin\Debug\FilesReadTask.exe.manifest
+D:\Task\FilesReadTask\bin\Debug\FilesReadTask.application
+D:\Task\FilesReadTask\obj\Debug\FilesReadTask.exe.manifest
+D:\Task\FilesReadTask\obj\Debug\FilesReadTask.application
 D:\Task\FilesReadTask\obj\Debug\FilesReadTask.csprojResolveAssemblyReference.cache

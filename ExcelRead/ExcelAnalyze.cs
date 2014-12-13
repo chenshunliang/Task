@@ -14,7 +14,7 @@ namespace ExcelRead
     {
         private static int index = 1;
 
-        public static void ExcelAnalyzeXLS(object file)
+        public static SalaryAnalyze ExcelAnalyzeXLS(object file)
         {
             FileInfo fileInfo = (FileInfo)file;
 
@@ -408,6 +408,8 @@ namespace ExcelRead
             analyze.SalaryWelfare.Add(SalaryWelfareEnum.NinetyPrecent, ninS);
             analyze.SalaryWelfare.Add(SalaryWelfareEnum.Average, aveS);
             memstream.Close();
+            index = 1;
+            return analyze;
         }
 
 

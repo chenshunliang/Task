@@ -131,10 +131,7 @@ namespace FilesReadTask
                     //内容进行读取
                     Resume resume = HtmlAnalyze.HTMLAnalyze(fileInfo.FullName);
                     //进行导入
-                    long UID = 1; //ResumeBLL.Add(resume);
-                    nums += 1;
-                    this.proBar.Value = nums;
-                    this.labNum.Text = nums + "/" + numsAll;
+                    long UID = ResumeBLL.LeadInAdd(resume);
 
                     if (UID > 0)
                     {
@@ -144,6 +141,9 @@ namespace FilesReadTask
                             using (StreamWriter sw = new StreamWriter(fs, Encoding.Default))
                             {
                                 sw.WriteLine("{0}|{1}", fileInfo.Name, "1");
+                                nums += 1;
+                                this.proBar.Value = nums;
+                                this.labNum.Text = nums + "/" + numsAll;
                             }
                         }
                     }

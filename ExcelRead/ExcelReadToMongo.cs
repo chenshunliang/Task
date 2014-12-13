@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CRIC.Shanglv.Lib.DiChanRen.BLL;
+using CRIC.Shanglv.Lib.DiChanRen.Entity;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -124,13 +126,10 @@ namespace ExcelRead
                     string numsAll = this.labNum.Text.Split('/')[1];
 
                     //内容进行读取
-                    ExcelAnalyze.ExcelAnalyzeXLS(file);
+                    SalaryAnalyze analyze = ExcelAnalyze.ExcelAnalyzeXLS(file);
 
                     //进行导入
-                    long UID = 1; //ResumeBLL.Add(resume);
-                    nums += 1;
-                    this.proBar.Value = nums;
-                    this.labNum.Text = nums + "/" + numsAll;
+                    long UID = SalaryAnalyzeBLL.Add(analyze);
 
                     if (UID > 0)
                     {
@@ -140,6 +139,9 @@ namespace ExcelRead
                             using (StreamWriter sw = new StreamWriter(fs, Encoding.Default))
                             {
                                 sw.WriteLine("{0}|{1}", fileInfo.Name, "1");
+                                nums += 1;
+                                this.proBar.Value = nums;
+                                this.labNum.Text = nums + "/" + numsAll;
                             }
                         }
                     }
