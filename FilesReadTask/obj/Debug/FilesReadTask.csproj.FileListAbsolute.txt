@@ -90,4 +90,3 @@ D:\Task\FilesReadTask\bin\Debug\FilesReadTask.exe.manifest
 D:\Task\FilesReadTask\bin\Debug\FilesReadTask.application
 D:\Task\FilesReadTask\obj\Debug\FilesReadTask.exe.manifest
 D:\Task\FilesReadTask\obj\Debug\FilesReadTask.application
-D:\Task\FilesReadTask\obj\Debug\FilesReadTask.csprojResolveAssemblyReference.cache

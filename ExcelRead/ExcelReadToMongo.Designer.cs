@@ -94,7 +94,7 @@
             this.MaximizeBox = false;
             this.Name = "ExcelReadToMongo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ExcelReadToMongo";
+            this.Text = "导入excel到数据库";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ExcelReadToMongo_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
