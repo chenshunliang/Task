@@ -36,6 +36,8 @@ namespace ExcelRead
                 rows.MoveNext();
             }
             SalaryAnalyze analyze = new SalaryAnalyze();
+            //样本城市
+            analyze.City = 1;
             SalaryWelfare tenS = new SalaryWelfare();
             SalaryWelfare tweS = new SalaryWelfare();
             SalaryWelfare fifS = new SalaryWelfare();

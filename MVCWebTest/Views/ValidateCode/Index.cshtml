@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<img id="valiCode" style="cursor: pointer;" src="/ValidateCode/ValiCode" alt="验证码" />
+<input id="valiText" type="text" value="" />
+<input id="vali" type="button" value="验证验证码" />
+<script src="~/Scripts/jquery-1.7.1.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $("#valiCode").bind("click", function () {
+            this.src = "/ValidateCode/ValiCode?time=" + (new Date()).getTime();
+        });
+        $("#vali").click(function () {
+            var dataPost = {};
+            dataPost.Code = $('#valiText').val();
+            $.ajax({
+                url: '/ValidateCode/Vali',
+                data: dataPost,
+                dataType: 'json',
+                type: 'post',
+                succsee: function (data) {
+                    alert(data);
+                }
+            });
+        });
+    });
+</script>
