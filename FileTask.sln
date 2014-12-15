@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HtmlAnalyze", "HtmlAnalyze\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcelRead", "ExcelRead\ExcelRead.csproj", "{92405A29-391D-45AF-A822-DC16944004C4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCWebTest", "MVCWebTest\MVCWebTest.csproj", "{7283C0D1-F2E6-43F9-B4EB-3427F962AFB8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,10 @@ Global
 		{92405A29-391D-45AF-A822-DC16944004C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{92405A29-391D-45AF-A822-DC16944004C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{92405A29-391D-45AF-A822-DC16944004C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7283C0D1-F2E6-43F9-B4EB-3427F962AFB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7283C0D1-F2E6-43F9-B4EB-3427F962AFB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7283C0D1-F2E6-43F9-B4EB-3427F962AFB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7283C0D1-F2E6-43F9-B4EB-3427F962AFB8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
