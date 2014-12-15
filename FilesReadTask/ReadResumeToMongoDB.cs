@@ -37,7 +37,7 @@ namespace FilesReadTask
         {
             using (FolderBrowserDialog fbd = new FolderBrowserDialog())
             {
-                fbd.Description = "学选取文件路径";
+                fbd.Description = "选取文件路径";
                 fbd.ShowNewFolderButton = false;
                 if (fbd.ShowDialog(this) == DialogResult.OK)
                 {
