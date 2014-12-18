@@ -13,12 +13,18 @@ namespace MVCWebTest.Controllers
     {
         //
         // GET: /ValidateCode/
-
+        private int index = 0;
         private static string json = "";
+        private static string codeJson = @"{%7b%22assessments_id%22%3a1%2c%22examination_id%22%3a111%2c%22company%22%3a%7b%22company_id%22%3a2%2c%22company_name%22%3a%22%u6d4b%u8bd5%u516c%u53f8%22%2c%22apply_post_id%22%3a1212%2c%22apply_post%22%3a%22aaa%22%7d%2c%22resume%22%3a%7b%22resume_id%22%3a122%2c%22fullname%22%3a%22asda%22%2c%22email%22%3a%22asdasdsa%22%2c%22education%22%3a%22asdas%22%2c%22professional%22%3a%22sadasdasdasd%22%7d%7d}";
 
         public ActionResult Index()
         {
-            NameValueCollection param = Request.Form;
+            if (index > 0)
+            {
+                string str = HttpUtility.UrlDecode(Request.Form[0]);
+            }
+            index++;
+            string j = HttpUtility.UrlDecode(codeJson);
 
             ExamPeople peo = new ExamPeople();
             peo.assessments_id = 1;
