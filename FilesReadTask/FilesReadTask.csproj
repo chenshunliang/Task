@@ -152,9 +152,6 @@
     <Reference Include="Winista.HtmlParser">
       <HintPath>..\bins\Winista.HtmlParser.dll</HintPath>
     </Reference>
-    <Reference Include="zxing">
-      <HintPath>C:\Users\shunliang\Desktop\DiChanRen\trunk\CRIC.Shanglv.Web.DiChanRen\CRIC.Shanglv.Lib.DiChanRen\bin\Debug\zxing.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="HtmlAnalyze.cs" />
@@ -183,7 +180,6 @@
     </EmbeddedResource>
     <None Include="bin\Debug\FilesReadTask.exe.config" />
     <None Include="bin\Debug\FilesReadTask.vshost.exe.config" />
-    <None Include="bin\Debug\FilesReadTask.vshost.exe.manifest" />
     <Fakes Include="Fakes\Newtonsoft.Json.fakes" />
     <None Include="FilesReadTask_TemporaryKey.pfx" />
     <None Include="obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
