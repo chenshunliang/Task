@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Web;
 using System.Web.Script.Serialization;
 
 namespace MVCWebTest.maipuhui
 {
-    public static class JSONHelper
+    public class JSONHelper
     {
         /// <summary> 
         /// JSON文本转对象,泛型方法 
@@ -22,7 +21,7 @@ namespace MVCWebTest.maipuhui
             {
                 return jss.Deserialize<T>(jsonText);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return default(T);
             }
@@ -40,7 +39,7 @@ namespace MVCWebTest.maipuhui
             {
                 return jss.Serialize(obj);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return default(string);
             }

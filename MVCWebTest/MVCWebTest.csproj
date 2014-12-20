@@ -115,7 +115,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="maipuhui\Exam.cs" />
     <Compile Include="maipuhui\ExamPeople.cs" />
     <Compile Include="maipuhui\JSONHelper.cs" />
     <Compile Include="maipuhui\MaiPH.cs" />

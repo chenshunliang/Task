@@ -1,16 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Web;
 
 namespace MVCWebTest.maipuhui
 {
-    /// <summary>
-    /// 测评人员信息
-    /// </summary>
     public class ExamPeople
     {
+
         /// <summary>
         /// 测评项目ID
         /// </summary>
