@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Web;
 
-namespace FilesReadTask.maipuhui
+namespace MVCWebTest.maipuhui
 {
     /// <summary>
     /// 迈普汇智测评系统
     /// </summary>
+    [Serializable]
     public class MaiPH
     {
         private static string AccessToken = "";
@@ -24,8 +26,6 @@ namespace FilesReadTask.maipuhui
             return tokenDic["access_token"];
         }
 
-
-
         /// <summary>
         /// web请求返回类
         /// </summary>
@@ -33,7 +33,7 @@ namespace FilesReadTask.maipuhui
         /// <param name="method">请求方式（post，get）</param>
         /// <param name="param">请求参数（p1=x&p2=y&p3=测试的中文）</param>
         /// <returns></returns>
-        private static string WRequest(string url, string method, string param)
+        public static string WRequest(string url, string method, string param)
         {
             try
             {
@@ -44,7 +44,7 @@ namespace FilesReadTask.maipuhui
                 //建立HTTP请求 
                 HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
                 request.Method = method;
-                request.ContentType = "text/plain";
+                request.ContentType = "application/x-www-form-urlencoded";
                 if (method.ToUpper() == "POST")
                 {
                     string paraUrlCoded = param;
@@ -53,7 +53,9 @@ namespace FilesReadTask.maipuhui
                     payload = System.Text.Encoding.UTF8.GetBytes(paraUrlCoded);
                     //设置请求的 ContentLength 
                     request.ContentLength = payload.Length;
-                    request.GetRequestStream().Write(payload, 0, payload.Length);
+                    Stream dataStream = request.GetRequestStream();
+                    dataStream.Write(payload, 0, payload.Length);
+                    dataStream.Close();
                 }
                 //获取HTTP响应 
                 HttpWebResponse response = (HttpWebResponse)request.GetResponse();
