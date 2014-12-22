@@ -37,7 +37,8 @@ namespace ExcelRead
             }
             SalaryAnalyze analyze = new SalaryAnalyze();
             //样本城市
-            analyze.City = 1;
+            analyze.City.ProvinceCode = "11";
+            analyze.City.CityCode = "";
             SalaryWelfare tenS = new SalaryWelfare();
             SalaryWelfare tweS = new SalaryWelfare();
             SalaryWelfare fifS = new SalaryWelfare();
