@@ -165,6 +165,10 @@ namespace FilesReadTask
                                         resume.Intention.Job.Add(key);
                                     }
                                 }
+                                if (resume.Intention.Job.Count == 0)
+                                {
+                                    resume.Intention.Job.Add("q1");
+                                }
 
                                 //目标地点
                                 reg = new Regex(@"目标地点：</td><td.+?>(.+?)</td>");
@@ -177,7 +181,8 @@ namespace FilesReadTask
                                 //期望工资
                                 //reg = new Regex(@"期望工资：</td><td.+?>(.+?)</td>");
                                 //resume.Intention.Salary = reg.Match(jobIntension).Groups[1].Value;
-                                //目标职能
+                                //希望行业
+                                //reg = new Regex(@"希望行业：</td><td.+?>(.+?)</td>");
 
                                 break;
                             case "工 作 经 验":
@@ -223,6 +228,10 @@ namespace FilesReadTask
                                                 if (listPos.Count > 0)
                                                 {
                                                     we.Category = listPos[0].Key;
+                                                }
+                                                if (string.IsNullOrEmpty(we.Category))
+                                                {
+                                                    we.Category = "q";
                                                 }
                                                 //部门名称，职位
                                                 string jobCateAndJob = wExpList[k].Parent.Parent.NextSibling.ToHtml();
