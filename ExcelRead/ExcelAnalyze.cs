@@ -1,4 +1,5 @@
-﻿using CRIC.Shanglv.Lib.DiChanRen.Entity;
+﻿using CRIC.Shanglv.Lib.DiChanRen.BLL;
+using CRIC.Shanglv.Lib.DiChanRen.Entity;
 using CRIC.Shanglv.Lib.DiChanRen.Enum;
 using NPOI.HSSF.UserModel;
 using System;
@@ -57,7 +58,24 @@ namespace ExcelRead
                 {
                     case 6:
                         //职位
-                        analyze.Position = row.Cells[0].ToString().Split(' ')[1];
+                        var pos = DataDict.CeShenJiaSubCategory;
+                        var position = row.Cells[0].ToString().Split(' ')[1].Trim();
+                        if (pos.ContainsValue(position))
+                        {
+                            position = pos.Where(p => p.Value == position).FirstOrDefault().Key;
+                        }
+                        else if (position == "高级精装修设计设")
+                        {
+                            position = "p25";
+                        }
+                        else if (position == "精装修设计设")
+                        {
+                            position = "p26";
+                        }
+                        else {
+                            position = "w1";
+                        }
+                        analyze.Position = position;
                         break;
                     case 8:
                         //级别

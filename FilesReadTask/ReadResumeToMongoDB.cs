@@ -170,7 +170,7 @@ namespace FilesReadTask
                 {
                     using (StreamWriter sw = new StreamWriter(fs, Encoding.Default))
                     {
-                        sw.WriteLine("{0}|{1}|{2}", fileInfo.Name, "0", ex.Message);
+                        sw.WriteLine("{0}|{1}|{2}", fileInfo.Name, "0", ex.Message + ex.Source + ex.StackTrace);
                         nums += 1;
                         this.proBar.Value = nums;
                         string numsAll = this.labNum.Text.Split('/')[1];

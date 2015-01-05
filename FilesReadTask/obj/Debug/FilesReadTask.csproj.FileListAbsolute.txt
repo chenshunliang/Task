@@ -126,11 +126,3 @@ D:\MyGit\Task\Task\FilesReadTask\bin\Debug\MongoDB.Driver.xml
 D:\MyGit\Task\Task\FilesReadTask\bin\Debug\PanGu.xml
 D:\MyGit\Task\Task\FilesReadTask\bin\Debug\zh-Hans\Microsoft.QualityTools.Testing.Fakes.resources.dll
 D:\MyGit\Task\Task\FilesReadTask\obj\Debug\FilesReadTask.application
-D:\Task\FilesReadTask\bin\Debug\log4net.dll
-D:\Task\FilesReadTask\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
-D:\Task\FilesReadTask\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
-D:\Task\FilesReadTask\bin\Debug\Microsoft.Practices.ObjectBuilder.dll
-D:\Task\FilesReadTask\bin\Debug\Newtonsoft.Json.dll
-D:\Task\FilesReadTask\bin\Debug\log4net.xml
-D:\Task\FilesReadTask\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml
-D:\Task\FilesReadTask\bin\Debug\Newtonsoft.Json.xml
