@@ -16,3 +16,9 @@ D:\MyGit\Task\Task\HtmlAnalyze\bin\Debug\HtmlAnalyze.pdb
 D:\MyGit\Task\Task\HtmlAnalyze\obj\Debug\HtmlAnalyze.csprojResolveAssemblyReference.cache
 D:\MyGit\Task\Task\HtmlAnalyze\obj\Debug\HtmlAnalyze.exe
 D:\MyGit\Task\Task\HtmlAnalyze\obj\Debug\HtmlAnalyze.pdb
+D:\MyGit\NewTask\Task2\HtmlAnalyze\bin\Debug\HtmlAnalyze.exe.config
+D:\MyGit\NewTask\Task2\HtmlAnalyze\bin\Debug\HtmlAnalyze.exe
+D:\MyGit\NewTask\Task2\HtmlAnalyze\bin\Debug\HtmlAnalyze.pdb
+D:\MyGit\NewTask\Task2\HtmlAnalyze\obj\Debug\HtmlAnalyze.exe
+D:\MyGit\NewTask\Task2\HtmlAnalyze\obj\Debug\HtmlAnalyze.pdb
+D:\MyGit\NewTask\Task2\HtmlAnalyze\obj\Debug\HtmlAnalyze.csprojResolveAssemblyReference.cache

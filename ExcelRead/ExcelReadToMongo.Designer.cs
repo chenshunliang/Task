@@ -34,6 +34,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.labNum = new System.Windows.Forms.Label();
             this.labInfo = new System.Windows.Forms.Label();
+            this.cmbCitys = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // proBar
@@ -80,11 +82,31 @@
             this.labInfo.TabIndex = 4;
             this.labInfo.Text = "准备读取";
             // 
+            // cmbCitys
+            // 
+            this.cmbCitys.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCitys.FormattingEnabled = true;
+            this.cmbCitys.Location = new System.Drawing.Point(65, 12);
+            this.cmbCitys.Name = "cmbCitys";
+            this.cmbCitys.Size = new System.Drawing.Size(121, 20);
+            this.cmbCitys.TabIndex = 5;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(21, 15);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(29, 12);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "城市";
+            // 
             // ExcelReadToMongo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(443, 118);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.cmbCitys);
             this.Controls.Add(this.labInfo);
             this.Controls.Add(this.labNum);
             this.Controls.Add(this.label1);
@@ -108,5 +130,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label labNum;
         private System.Windows.Forms.Label labInfo;
+        private System.Windows.Forms.ComboBox cmbCitys;
+        private System.Windows.Forms.Label label2;
     }
 }

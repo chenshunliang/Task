@@ -57,7 +57,7 @@ namespace FilesReadTask
             this.labInfo.Text = "文件扫描完毕,正在导入";
             FileInfo[] files = di.GetFiles("*.html");
             string content = "";
-            using (FileStream fs = new FileStream(@"d:\ReadLog.txt", FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.ReadWrite))
+            using (FileStream fs = new FileStream(@"c:\ReadLog.txt", FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.ReadWrite))
             {
                 using (StreamReader sr = new StreamReader(fs, Encoding.Default))
                 {
@@ -136,7 +136,7 @@ namespace FilesReadTask
                     if (UID > 0)
                     {
                         //解析导入成功
-                        using (FileStream fs = new FileStream(@"d:\ReadLog.txt", FileMode.Append, FileAccess.Write, FileShare.ReadWrite))
+                        using (FileStream fs = new FileStream(@"c:\ReadLog.txt", FileMode.Append, FileAccess.Write, FileShare.ReadWrite))
                         {
                             using (StreamWriter sw = new StreamWriter(fs, Encoding.Default))
                             {
@@ -166,7 +166,7 @@ namespace FilesReadTask
             catch (Exception ex)
             {
                 //解析导入成功
-                using (FileStream fs = new FileStream(@"d:\ReadLog.txt", FileMode.Append, FileAccess.Write, FileShare.ReadWrite))
+                using (FileStream fs = new FileStream(@"c:\ReadLog.txt", FileMode.Append, FileAccess.Write, FileShare.ReadWrite))
                 {
                     using (StreamWriter sw = new StreamWriter(fs, Encoding.Default))
                     {

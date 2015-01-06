@@ -444,7 +444,7 @@ namespace FilesReadTask
                     }
                     if (resume.RealName == null)
                         throw new Exception("简历无法匹配");
-                    if (resume.RealName.Contains("性 别"))
+                    if (resume.RealName.Contains("性") && resume.RealName.Contains("别"))
                         throw new Exception("简历无法匹配");
                     return resume;
                 }
