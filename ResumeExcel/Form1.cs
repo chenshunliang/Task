@@ -15,5 +15,18 @@ namespace ResumeExcel
         {
             InitializeComponent();
         }
+
+        private void btn_select_Click(object sender, EventArgs e)
+        {
+            using (FolderBrowserDialog fbd = new FolderBrowserDialog())
+            {
+                fbd.Description = "选取文件路径";
+                fbd.ShowNewFolderButton = false;
+                if (fbd.ShowDialog(this) == DialogResult.OK)
+                {
+
+                }
+            }
+        }
     }
 }

@@ -28,13 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.btn_select = new System.Windows.Forms.Button();
             this.SuspendLayout();
+            // 
+            // btn_select
+            // 
+            this.btn_select.Location = new System.Drawing.Point(247, 31);
+            this.btn_select.Name = "btn_select";
+            this.btn_select.Size = new System.Drawing.Size(75, 23);
+            this.btn_select.TabIndex = 0;
+            this.btn_select.Text = "选取文件";
+            this.btn_select.UseVisualStyleBackColor = true;
+            this.btn_select.Click += new System.EventHandler(this.btn_select_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(374, 92);
+            this.Controls.Add(this.btn_select);
             this.Name = "Form1";
             this.Text = "Excel简历导入";
             this.ResumeLayout(false);
@@ -42,6 +54,8 @@
         }
 
         #endregion
+
+        private System.Windows.Forms.Button btn_select;
     }
 }
 
